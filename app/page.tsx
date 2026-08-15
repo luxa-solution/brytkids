@@ -398,13 +398,27 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
+      <footer id="footer" className="site-footer">
+        <div className="footer-ribbon" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <span className="footer-shape footer-shape--ring" aria-hidden="true" />
+        <span className="footer-shape footer-shape--star" aria-hidden="true">
+          ✦
+        </span>
+        <span
+          className="footer-shape footer-shape--diamond"
+          aria-hidden="true"
+        />
         <div className="site-shell newsletter-grid">
-          <div>
+          <div className="footer-newsletter-heading">
             <p className="eyebrow eyebrow--light">{copy.newsletter.eyebrow}</p>
             <h2>{copy.newsletter.title}</h2>
           </div>
-          <div>
+          <div className="newsletter-panel">
             <p>{copy.newsletter.copy}</p>
             <form
               className="newsletter-form"
