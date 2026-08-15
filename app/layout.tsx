@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Newsreader } from "next/font/google";
+import { content } from "./content";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -16,23 +17,15 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Bryt Kids | Raise Children Intentionally",
-  description:
-    "Helping parents raise children of faith, character, confidence and lifelong learning.",
-  applicationName: "Bryt Kids",
-  keywords: [
-    "intentional parenting",
-    "child development",
-    "homeschooling",
-    "parent coaching",
-    "family education",
-  ],
+  title: content.site.title,
+  description: content.site.description,
+  applicationName: content.site.name,
+  keywords: [...content.site.keywords],
   openGraph: {
     type: "website",
-    title: "Bryt Kids | Raise Children Intentionally",
-    description:
-      "Helping parents raise children of faith, character, confidence and lifelong learning.",
-    siteName: "Bryt Kids",
+    title: content.site.title,
+    description: content.site.description,
+    siteName: content.site.name,
   },
   robots: { index: true, follow: true },
 };
@@ -47,7 +40,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang={content.locale}
       className={`${instrumentSans.variable} ${newsreader.variable}`}
     >
       <body>{children}</body>

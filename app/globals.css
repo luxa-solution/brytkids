@@ -194,36 +194,17 @@ h3 {
 .brand-mark {
   position: relative;
   display: block;
+  width: 3.1rem;
+  aspect-ratio: 1;
   flex: 0 0 auto;
   overflow: hidden;
+  border-radius: 0.85rem;
+  box-shadow: 0 0.35rem 0 color-mix(in srgb, var(--sky) 72%, var(--cream));
 }
 
 .brand-mark img {
-  position: absolute;
-  max-width: none;
-  height: auto;
-}
-
-.brand-mark--full {
-  width: 3.75rem;
-  height: 4rem;
-}
-
-.brand-mark--full img {
-  top: -0.5rem;
-  left: -2.125rem;
-  width: 8rem;
-}
-
-.brand-mark--short {
-  width: 9rem;
-  height: 5rem;
-}
-
-.brand-mark--short img {
-  top: -6rem;
-  left: -4.4rem;
-  width: 17.5rem;
+  width: 100%;
+  height: 100%;
 }
 
 .desktop-navigation,
@@ -531,6 +512,12 @@ h3 {
     filter 500ms var(--ease-out);
 }
 
+.photo-placeholder__image--contain img {
+  padding: clamp(2.5rem, 10cqi, 7rem);
+  background: var(--cream);
+  object-fit: contain;
+}
+
 .photo-placeholder__frame {
   position: absolute;
   z-index: 1;
@@ -622,6 +609,19 @@ h3 {
   background: var(--cream);
   box-shadow: 0 1rem 3rem color-mix(in srgb, var(--navy) 14%, transparent);
   transform: rotate(2deg);
+}
+
+.brand-artwork {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 5.4rem;
+  overflow: hidden;
+}
+
+.brand-artwork img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .hero-note p {
@@ -1373,16 +1373,10 @@ h3 {
   gap: 3rem;
 }
 
-.footer-brand .brand-mark--full {
-  width: 4.4rem;
-  height: 4.7rem;
-  background: var(--cream);
-}
-
-.footer-brand .brand-mark--full img {
-  top: -0.62rem;
-  left: -2.5rem;
-  width: 9.4rem;
+.footer-brand .brand-mark {
+  width: 4rem;
+  border: 1px solid color-mix(in srgb, var(--cream) 34%, transparent);
+  box-shadow: 0 0.45rem 0 var(--sky);
 }
 
 .footer-brand > p {
@@ -1471,7 +1465,7 @@ h3 {
   cursor: not-allowed;
 }
 
-.whatsapp-button.is-disabled::after {
+.whatsapp-button .destination-status {
   position: absolute;
   top: -0.45rem;
   right: -0.35rem;
@@ -1480,7 +1474,6 @@ h3 {
   border-radius: 999px;
   background: var(--orange);
   color: var(--navy-deep);
-  content: "Soon";
   font-size: 0.54rem;
   font-weight: 800;
   letter-spacing: 0.04em;

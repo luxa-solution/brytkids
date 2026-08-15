@@ -1,13 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { NavigationItem } from "../site-config";
+import type { NavigationItem } from "../content";
 
 type MobileNavigationProps = {
   items: readonly NavigationItem[];
+  labels: {
+    open: string;
+    close: string;
+    landmark: string;
+    cta: string;
+  };
 };
 
-export function MobileNavigation({ items }: MobileNavigationProps) {
+export function MobileNavigation({ items, labels }: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -33,7 +39,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         type="button"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
-        aria-label={isOpen ? "Close navigation" : "Open navigation"}
+        aria-label={isOpen ? labels.close : labels.open}
         onClick={() => setIsOpen((value) => !value)}
       >
         <span />
@@ -46,7 +52,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         aria-hidden={!isOpen}
       >
         <div className="mobile-menu-clip">
-          <nav className="mobile-menu" aria-label="Mobile navigation">
+          <nav className="mobile-menu" aria-label={labels.landmark}>
             {items.map((item, index) => (
               <a
                 key={item.href}
@@ -64,7 +70,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
               tabIndex={isOpen ? 0 : -1}
               onClick={() => setIsOpen(false)}
             >
-              Work With Bryt
+              {labels.cta}
             </a>
           </nav>
         </div>
