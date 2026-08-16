@@ -268,23 +268,8 @@ h3 {
 	/* keep stacking default so header remains above menu */
 
 	/* Full-screen backdrop (hidden until open) */
-
-	&::before {
-		position: fixed;
-		top: calc(4.75rem + env(safe-area-inset-top));
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, 0.45);
-		backdrop-filter: blur(6px);
-		-webkit-backdrop-filter: blur(6px);
-		content: '';
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 200ms var(--ease-out);
-		/* place overlay under the header but above page content */
-		z-index: calc(var(--z-sticky) - 1);
-	}
+	/* backdrop is rendered as a portal element (see MobileNavigation)
+	   to avoid affecting header/menu layout */
 
 	transition:
 		grid-template-rows 300ms var(--ease-out),
@@ -2050,4 +2035,26 @@ h3 {
 	.testimonial-placeholder {
 		border: 1px solid ButtonText;
 	}
+}
+
+/* Prevent background scroll when mobile menu is open */
+body.has-mobile-menu-open {
+	overflow: hidden;
+}
+
+/* Backdrop rendered as a portal to avoid layout shifts */
+.mobile-menu-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 220ms var(--ease-out);
+	z-index: calc(var(--z-sticky) - 1);
+}
+.mobile-menu-backdrop.is-open {
+	opacity: 1;
+	pointer-events: auto;
 }
