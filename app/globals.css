@@ -265,12 +265,6 @@ h3 {
 	background: var(--cream);
 	opacity: 0;
 	visibility: hidden;
-	/* keep stacking default so header remains above menu */
-
-	/* Full-screen backdrop (hidden until open) */
-	/* backdrop is rendered as a portal element (see MobileNavigation)
-	   to avoid affecting header/menu layout */
-
 	transition:
 		grid-template-rows 300ms var(--ease-out),
 		opacity 200ms var(--ease-out),
@@ -282,11 +276,6 @@ h3 {
 	opacity: 1;
 	visibility: visible;
 	transition-delay: 0s;
-
-	&::before {
-		opacity: 1;
-		pointer-events: auto;
-	}
 }
 
 .mobile-menu-clip {
@@ -2046,9 +2035,9 @@ body.has-mobile-menu-open {
 .mobile-menu-backdrop {
 	position: fixed;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.6);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
+	background: color-mix(in srgb, var(--navy-deep) 50%, transparent);
+	-webkit-backdrop-filter: blur(18px) saturate(0.82);
+	backdrop-filter: blur(18px) saturate(0.82);
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity 220ms var(--ease-out);
