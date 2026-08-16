@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import type { NavigationItem } from '../content';
 
@@ -14,9 +14,20 @@ type MobileNavigationProps = {
 	};
 };
 
+const subscribeToHydration = () => () => {};
+
+function useHasHydrated() {
+	return useSyncExternalStore(
+		subscribeToHydration,
+		() => true,
+		() => false,
+	);
+}
+
 export function MobileNavigation({ items, labels }: MobileNavigationProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const buttonRef = useRef<HTMLButtonElement>(null);
+	const hasHydrated = useHasHydrated();
 
 	useEffect(() => {
 		if (!isOpen) return;
@@ -83,10 +94,11 @@ export function MobileNavigation({ items, labels }: MobileNavigationProps) {
 					</nav>
 				</div>
 			</div>
-			{typeof document !== 'undefined' &&
+			{hasHydrated &&
 				createPortal(
 					<div
 						className={`mobile-menu-backdrop${isOpen ? ' is-open' : ''}`}
+						aria-hidden='true'
 						onClick={() => setIsOpen(false)}></div>,
 					document.body,
 				)}
