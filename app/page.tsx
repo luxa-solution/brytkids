@@ -168,7 +168,7 @@ export default function Home() {
                 <p className="value-feature__kicker">Education is bigger than school.</p>
                 <h3>Home is where a lifetime of learning begins.</h3>
                 <p className="value-feature__body">
-                  Bryt brings parenting, education, character development and practical life skills together—so families can nurture capable, grounded children.
+                  Bryt brings parenting, education, character development and practical life skills together, so families can nurture capable, grounded children.
                 </p>
                 <ul className="value-principles" aria-label="The Bryt approach">
                   <li>Thoughtful parenting</li>
@@ -240,7 +240,7 @@ export default function Home() {
                 <div className="program-copy">
                   <span className="card-tag">For parents</span>
                   <h3>Intentional Homeschooling</h3>
-                  <p>Build an education around your child’s needs, strengths, character and future—with clarity and confidence.</p>
+                  <p>Build an education around your child’s needs, strengths, character and future, with clarity and confidence.</p>
                   <ul className="program-details">
                     <li>Video and audio lessons</li>
                     <li>Practical exercises</li>
