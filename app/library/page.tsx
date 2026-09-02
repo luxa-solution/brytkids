@@ -20,11 +20,17 @@ export default function LibraryPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="The Bryt Library"
-          title="Simple Resources for Growing Minds"
+          title="Simple Resources for"
+          titleAccent="Growing Minds"
           lead="Thoughtfully created books, audios, activities and parent resources that make learning part of everyday family life."
           accent="yellow"
+          primaryAction={{ label: "Browse Resources", href: "#library-collection" }}
+          secondaryAction={{ label: "Ask Bryt", href: "/contact" }}
+          points={["Read", "Listen", "Explore"]}
+          topNote={{ label: "Child resources", copy: "Curiosity made practical" }}
+          bottomNote={{ label: "Parent tools", copy: "Guidance you can use" }}
         />
-        <section className="inner-section">
+        <section id="library-collection" className="inner-section section-anchor">
           <div className="site-shell">
             <ContentHeading eyebrow="Browse the library" title="Four useful places to begin." copy="The library stays intentionally simple. Each category will grow as new Bryt resources become available." />
             <div className="library-grid">

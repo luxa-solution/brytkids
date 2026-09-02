@@ -15,9 +15,15 @@ export default function ContactPage() {
       <main id="main-content" className="inner-page contact-page">
         <InteriorHero
           eyebrow="Contact"
-          title="Let’s Talk"
+          title="Let’s"
+          titleAccent="Talk"
           lead="Have a question, need support, or want to work with Bryt? We’d love to hear from you."
           accent="aqua"
+          primaryAction={{ label: "Chat on WhatsApp", href: siteConfig.whatsapp.href, external: true }}
+          secondaryAction={{ label: "Send an Email", href: `mailto:${siteConfig.email}`, external: true }}
+          points={["Friendly", "Focused", "Helpful"]}
+          topNote={{ label: "Direct support", copy: "A real conversation" }}
+          bottomNote={{ label: "A clear response", copy: "We’ll guide your next step" }}
         />
         <section className="inner-section">
           <div className="site-shell contact-layout">

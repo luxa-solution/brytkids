@@ -104,8 +104,9 @@ export function FloatingWhatsApp() {
       className="whatsapp-button"
       disabledTitle="Bryt WhatsApp is currently unavailable."
     >
-      <WhatsAppIcon />
-      <span>Chat with Bryt</span>
+      <span className="whatsapp-button__icon"><WhatsAppIcon /></span>
+      <span className="whatsapp-button__copy"><small>Direct support</small><strong>Chat with Bryt</strong></span>
+      <span className="whatsapp-button__arrow"><ArrowIcon /></span>
     </DestinationLink>
   );
 }

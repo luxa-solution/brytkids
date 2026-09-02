@@ -19,11 +19,17 @@ export default function JournalPage() {
       <main id="main-content" className="inner-page journal-page">
         <InteriorHero
           eyebrow="The Bryt Journal"
-          title="Read Something Useful. Leave Thinking Differently."
+          title="Read Something Useful."
+          titleAccent="Think Differently."
           lead="Thoughts on raising children, building families and living intentionally."
           accent="pink"
+          primaryAction={{ label: "Explore Our Themes", href: "#journal-themes" }}
+          secondaryAction={{ label: "Listen to TIP", href: "/the-intentional-parent" }}
+          points={["Parenting", "Education", "Family life"]}
+          topNote={{ label: "Thoughtful writing", copy: "Ideas without the noise" }}
+          bottomNote={{ label: "Useful reflection", copy: "Leave with a new thought" }}
         />
-        <section className="inner-section">
+        <section id="journal-themes" className="inner-section section-anchor">
           <div className="site-shell">
             <ContentHeading eyebrow="Latest from the Journal" title="Thoughtful writing is on its way." copy="The Journal will stay simple: useful ideas, clearly written, without noise or unnecessary categories." />
             <div className="journal-themes">
