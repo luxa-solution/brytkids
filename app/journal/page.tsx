@@ -8,9 +8,30 @@ export const metadata: Metadata = {
 };
 
 const themes = [
-  ["Parenting with intention", "Thoughtful responses to the questions and decisions that shape everyday family life."],
-  ["Learning beyond school", "Ideas about homeschooling, education, curiosity and how children really learn."],
-  ["Building family life", "Reflections on values, relationships, habits and the environment children grow within."],
+  {
+    title: "Parenting with intention",
+    copy: "Thoughtful responses to the questions and decisions that shape everyday family life.",
+    label: "For everyday parenting",
+    art: "PAUSE",
+    ideas: ["Questions", "Choices", "Good habits"],
+    tone: "coral",
+  },
+  {
+    title: "Learning beyond school",
+    copy: "Ideas about homeschooling, education, curiosity and how children really learn.",
+    label: "For curious families",
+    art: "NOTICE",
+    ideas: ["Education", "Curiosity", "Home learning"],
+    tone: "aqua",
+  },
+  {
+    title: "Building family life",
+    copy: "Reflections on values, relationships, habits and the environment children grow within.",
+    label: "For stronger homes",
+    art: "GROW",
+    ideas: ["Values", "Relationships", "Family rhythm"],
+    tone: "yellow",
+  },
 ] as const;
 
 export default function JournalPage() {
@@ -33,11 +54,23 @@ export default function JournalPage() {
           <div className="site-shell">
             <ContentHeading eyebrow="Latest from the Journal" title="Thoughtful writing is on its way." copy="The Journal will stay simple: useful ideas, clearly written, without noise or unnecessary categories." />
             <div className="journal-themes">
-              {themes.map(([title, copy], index) => (
-                <article key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p><small>Editorial theme</small></article>
+              {themes.map((theme) => (
+                <article key={theme.title} className={`journal-theme-card journal-theme-card--${theme.tone}`}>
+                  <div className="journal-theme-card__art" aria-hidden="true">
+                    <span className="journal-theme-card__word">{theme.art}</span>
+                    <span className="journal-theme-card__shape journal-theme-card__shape--one" />
+                    <span className="journal-theme-card__shape journal-theme-card__shape--two" />
+                  </div>
+                  <div className="journal-theme-card__copy">
+                    <span className="card-tag">{theme.label}</span>
+                    <h2>{theme.title}</h2>
+                    <p>{theme.copy}</p>
+                    <ul>{theme.ideas.map((idea) => <li key={idea}>{idea}</li>)}</ul>
+                    <small>Coming to the Journal</small>
+                  </div>
+                </article>
               ))}
             </div>
-            <div className="journal-empty"><p className="eyebrow">Publishing soon</p><h2>The first Bryt Journal entries are being prepared.</h2><p>When they are ready, the newest writing will appear here first.</p></div>
           </div>
         </section>
         <ClosingCta
