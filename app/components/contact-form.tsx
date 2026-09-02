@@ -21,7 +21,7 @@ export function ContactForm() {
       message,
     ].join("\n");
 
-    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(`Bryt Kids enquiry — ${topic}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(`Bryt Kids enquiry: ${topic}`)}&body=${encodeURIComponent(body)}`;
   }
 
   return (

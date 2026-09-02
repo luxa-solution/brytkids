@@ -24,7 +24,7 @@ export default function BrytLeadersPage() {
           eyebrow="For children"
           title="Bryt"
           titleAccent="Leaders"
-          lead="Raising children who can think, speak and lead—a development program for confident communicators, thoughtful leaders and responsible young people."
+          lead="Raising children who can think, speak and lead. A development program for confident communicators, thoughtful leaders and responsible young people."
           accent="orange"
           primaryAction={{ label: "Ask About Bryt Leaders", href: "/contact" }}
           secondaryAction={{ label: "View All Programs", href: "/programs" }}

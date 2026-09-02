@@ -56,7 +56,7 @@ export default function ProgramsPage() {
 
         <ClosingCta
           eyebrow="One intentional goal"
-          title="Prepared for life—not just the classroom."
+          title="Prepared for life, not just the classroom."
           copy="Different children need different paths. Find the program that meets your family where you are."
           secondaryLabel="Talk to Bryt"
           secondaryHref="/contact"

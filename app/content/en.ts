@@ -115,12 +115,12 @@ export const enContent = {
       title: "Childhood Is Too Important to Leave to Chance.",
       paragraphs: [
         "The way children learn, think, speak, behave and grow is shaped by the environment we create around them.",
-        "Bryt helps parents become more intentional about that environment—and helps children develop the knowledge, character and confidence they need to thrive.",
+        "Bryt helps parents become more intentional about that environment, and helps children develop the knowledge, character and confidence they need to thrive.",
       ],
       cta: "Discover Bryt",
     },
     services: {
-      eyebrow: "01 — Services",
+      eyebrow: "01 · Services",
       title: "Personalised Support for Your Family",
       copy:
         "Sometimes you don’t need another article. You need someone to help you think through your situation.",
@@ -128,7 +128,7 @@ export const enContent = {
       cta: "Explore Services",
     },
     programs: {
-      eyebrow: "02 — Programs",
+      eyebrow: "02 · Programs",
       title: "Programs That Help Children and Parents Grow",
       items: [
         {
@@ -166,10 +166,10 @@ export const enContent = {
       copy:
         "A child’s education happens at the dining table, in conversations, through books, in moments of difficulty, in the habits we build and in the example we set.",
       closing:
-        "At Bryt, we care about the whole child—and the parents raising them.",
+        "At Bryt, we care about the whole child and the parents raising them.",
     },
     tip: {
-      eyebrow: "TIP — The Intentional Parent",
+      eyebrow: "TIP · The Intentional Parent",
       title: "The Weekly Conversation for Intentional Parents.",
       copy:
         "Honest conversations, thoughtful ideas and practical wisdom for navigating the beautiful responsibility of raising children.",
@@ -178,7 +178,7 @@ export const enContent = {
         "A parent listening and reflecting in a calm, lived-in family space.",
     },
     library: {
-      eyebrow: "03 — The Bryt Library",
+      eyebrow: "03 · The Bryt Library",
       title: "Resources for Growing Minds",
       copy:
         "Explore books, activities, guides and educational resources created to help children learn and parents lead with intention.",
@@ -193,20 +193,20 @@ export const enContent = {
         "A warm still life of children’s books, learning materials and thoughtful resources.",
     },
     journal: {
-      eyebrow: "04 — The Bryt Journal",
+      eyebrow: "04 · The Bryt Journal",
       title: "Ideas Worth Thinking About",
       copy:
         "Thoughtful writing on parenting, homeschooling, education, child development, family life and raising children intentionally.",
       cta: "Read the Journal",
       media:
-        "Temporary Bryt Kids artwork—replace with an approved family learning image.",
+        "Temporary Bryt Kids artwork. Replace with an approved family learning image.",
       mediaLabel: "Temporary visual asset",
     },
     testimonials: {
       eyebrow: "Parent stories",
       title: "What Parents Are Saying",
       notice:
-        "Layout preview — replace with approved parent feedback before publication.",
+        "Layout preview. Replace with approved parent feedback before publication.",
       placeholderLabel: "Placeholder",
       items: testimonials,
     },

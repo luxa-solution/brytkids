@@ -2951,12 +2951,45 @@ body.has-mobile-menu-open {
 .footer-socials { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
 .footer-socials a {
-  padding: 0.35rem 0.55rem;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.38rem;
   border: 1px solid rgb(255 255 255 / 12%);
   border-radius: 999px;
+  background: rgb(255 255 255 / 5%);
   color: white;
-  font-size: 0.65rem;
-  font-weight: 750;
+  font-size: 0.68rem;
+  font-weight: 800;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.footer-social__icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 8%);
+  color: var(--aqua);
+}
+
+.footer-social__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social--youtube .footer-social__icon {
+  color: var(--coral);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-socials a:hover {
+    border-color: rgb(103 226 229 / 34%);
+    background: rgb(255 255 255 / 9%);
+    transform: translateY(-2px);
+  }
 }
 
 @media (max-width: 980px) {

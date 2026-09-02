@@ -13,7 +13,7 @@ const offers = [
   {
     number: "01",
     title: "1:1 Consultation",
-    copy: "A focused conversation around one parenting, homeschooling or family challenge—so you leave with clarity and practical next steps.",
+    copy: "A focused conversation around one parenting, homeschooling or family challenge, so you leave with clarity and practical next steps.",
     points: ["A specific challenge", "A fresh perspective", "Clear next actions"],
     tone: "coral",
   },
@@ -48,7 +48,7 @@ export default function ServicesPage() {
           eyebrow="Services"
           title="How We Help"
           titleAccent="Families"
-          lead="Practical support for parents who want to raise capable, confident, grounded children—and build a home that helps them thrive."
+          lead="Practical support for parents who want to raise capable, confident, grounded children and build a home that helps them thrive."
           accent="aqua"
           primaryAction={{ label: "Find Your Support", href: "/work-with-bryt" }}
           secondaryAction={{ label: "Explore Programs", href: "/programs" }}

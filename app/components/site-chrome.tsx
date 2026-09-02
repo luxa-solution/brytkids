@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaInstagram, FaYoutube } from "react-icons/fa6";
 import { content } from "../content";
 import { siteConfig, siteNavigation } from "../site-config";
 import { BrandMark } from "./brand-mark";
@@ -82,9 +83,23 @@ export function SiteFooter() {
           <h2>Not sure where to begin?</h2>
           <p>Tell us what your family needs and we’ll point you towards a helpful next step.</p>
           <div className="footer-socials">
-            {siteConfig.socialLinks.map((item) => (
-              <a key={item.key} href={item.href} target="_blank" rel="noreferrer">{item.label}</a>
-            ))}
+            {siteConfig.socialLinks.map((item) => {
+              const SocialIcon = item.key === "instagram" ? FaInstagram : FaYoutube;
+
+              return (
+                <a
+                  key={item.key}
+                  className={`footer-social footer-social--${item.key}`}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Follow Bryt Kids on ${item.label}`}
+                >
+                  <span className="footer-social__icon"><SocialIcon aria-hidden="true" /></span>
+                  <span>{item.label}</span>
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

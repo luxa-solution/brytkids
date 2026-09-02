@@ -36,7 +36,7 @@ export default function AboutPage() {
           <div className="site-shell editorial-split about-story">
             <ContentHeading eyebrow="Why Bryt" title="Children do not simply grow up." />
             <div className="editorial-copy">
-              <p>They are shaped by what surrounds them—what they see, hear, practise, believe and experience every day.</p>
+              <p>They are shaped by what surrounds them: what they see, hear, practise, believe and experience every day.</p>
               <p>That is why we care about more than academic performance. We care about character, confidence, faith, communication, curiosity and practical life skills.</p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
         <ClosingCta
           eyebrow="Our vision"
-          title="Prepared to live well—not merely to pass tests."
+          title="Prepared to live well, not merely to pass tests."
           copy="We are building towards a generation of grounded, capable children with strong values and a genuine desire to learn and contribute."
           secondaryLabel="Explore Programs"
           secondaryHref="/programs"
