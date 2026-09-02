@@ -1,11 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import familyLearning from "../public/images/bryt-family-learning.webp";
-import { BrandMark } from "./components/brand-mark";
-import { DestinationLink } from "./components/destination-link";
-import { ArrowIcon, WhatsAppIcon } from "./components/icons";
-import { MobileNavigation } from "./components/mobile-navigation";
-import { content } from "./content";
-import { siteConfig } from "./site-config";
+import { ArrowIcon } from "./components/icons";
+import { FloatingWhatsApp, SiteFooter, SiteHeader } from "./components/site-chrome";
 
 const services = [
   {
@@ -75,7 +72,7 @@ const growthLinks = [
     eyebrow: "Resources",
     title: "The Bryt Library",
     description: "Books, activities and tools for growing minds.",
-    href: "#library",
+    href: "/library",
     tone: "aqua",
     mark: "01",
     areas: ["Children’s books", "Activities and printables", "Parenting guides"],
@@ -84,7 +81,7 @@ const growthLinks = [
     eyebrow: "Ideas",
     title: "The Bryt Journal",
     description: "Useful thoughts for intentional parents.",
-    href: "#journal",
+    href: "/journal",
     tone: "coral",
     mark: "02",
     areas: ["Parenting", "Homeschooling", "Islamic Tarbiyah"],
@@ -93,7 +90,7 @@ const growthLinks = [
     eyebrow: "Listen",
     title: "TIP Podcast",
     description: "Weekly conversations about raising children well.",
-    href: "#journal",
+    href: "/the-intentional-parent",
     tone: "yellow",
     mark: "03",
     areas: ["Faith and character", "Education", "Family life"],
@@ -101,50 +98,10 @@ const growthLinks = [
 ] as const;
 
 export default function Home() {
-  const navigation = content.navigation.primary;
-
   return (
     <div id="top" className="site-page">
-      <a className="skip-link" href="#main-content">
-        {content.accessibility.skipToContent}
-      </a>
-
-      <div className="announcement">
-        <span aria-hidden="true" />
-        Raising capable children starts with intentional choices.
-      </div>
-
-      <header className="site-header">
-        <div className="site-shell header-pill">
-          <a className="brand-link" href="#top" aria-label={content.site.homeLabel}>
-            <BrandMark alt="" priority />
-            <span>Bryt Kids</span>
-          </a>
-
-          <nav className="desktop-navigation" aria-label={content.accessibility.primaryNavigation}>
-            {navigation.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <a className="button button--small button--primary header-cta" href="#contact">
-            Work With Bryt
-            <ArrowIcon />
-          </a>
-
-          <MobileNavigation
-            items={navigation}
-            labels={{
-              open: content.accessibility.openNavigation,
-              close: content.accessibility.closeNavigation,
-              landmark: content.accessibility.mobileNavigation,
-              cta: content.navigation.mobileCta,
-            }}
-          />
-        </div>
-      </header>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
+      <SiteHeader />
 
       <main id="main-content">
         <section className="hero" aria-labelledby="hero-title">
@@ -158,13 +115,13 @@ export default function Home() {
                 Practical support for raising children of faith, character and confidence.
               </p>
               <div className="button-row">
-                <a className="button button--primary" href="#services">
+                <Link className="button button--primary" href="/services">
                   Explore Services
                   <ArrowIcon />
-                </a>
-                <a className="button button--secondary" href="#programs">
+                </Link>
+                <Link className="button button--secondary" href="/programs">
                   Explore Programs
-                </a>
+                </Link>
               </div>
               <div className="hero-points" aria-label="Bryt Kids values">
                 <span><i className="dot dot--blue" />Faith-led</span>
@@ -218,7 +175,7 @@ export default function Home() {
                   <li>Meaningful education</li>
                   <li>Practical guidance</li>
                 </ul>
-                <a href="#services">See how we help <ArrowIcon /></a>
+                <Link href="/about">Discover what guides us <ArrowIcon /></Link>
               </article>
               {values.map((value) => (
                 <article key={value.title} className={`value-card value-card--${value.tone}`}>
@@ -258,7 +215,7 @@ export default function Home() {
                   </div>
                   <div className="service-card__footer">
                     <p><span>Best for</span>{service.idealFor}</p>
-                    <a href="#contact" aria-label={`Ask about ${service.title}`}>Explore service <ArrowIcon /></a>
+                    <Link href="/services" aria-label={`Explore ${service.title}`}>Explore service <ArrowIcon /></Link>
                   </div>
                 </article>
               ))}
@@ -289,7 +246,7 @@ export default function Home() {
                     <li>Practical exercises</li>
                     <li>Homeschool journal</li>
                   </ul>
-                  <a className="button button--dark" href="#contact">Explore the course <ArrowIcon /></a>
+                  <Link className="button button--dark" href="/programs/intentional-homeschooling">Explore the course <ArrowIcon /></Link>
                 </div>
               </article>
 
@@ -307,7 +264,7 @@ export default function Home() {
                     <li>Critical thinking</li>
                     <li>Character and habits</li>
                   </ul>
-                  <a className="button button--dark" href="#contact">Explore Bryt Leaders <ArrowIcon /></a>
+                  <Link className="button button--dark" href="/programs/bryt-leaders">Explore Bryt Leaders <ArrowIcon /></Link>
                 </div>
               </article>
             </div>
@@ -337,7 +294,7 @@ export default function Home() {
             </div>
             <div id="journal" className="explore-grid section-anchor">
               {growthLinks.map((item) => (
-                <a key={item.title} className={`explore-card explore-card--${item.tone}`} href={item.href}>
+                <Link key={item.title} className={`explore-card explore-card--${item.tone}`} href={item.href}>
                   <span className="explore-mark" aria-hidden="true">{item.mark}</span>
                   <span className="eyebrow">{item.eyebrow}</span>
                   <h3>{item.title}</h3>
@@ -346,7 +303,7 @@ export default function Home() {
                     {item.areas.map((area) => <li key={area}>{area}</li>)}
                   </ul>
                   <span className="explore-arrow"><ArrowIcon /></span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -360,47 +317,15 @@ export default function Home() {
             <h2>Ready to raise intentionally?</h2>
             <p>Choose the support your family needs. We’ll take it from there.</p>
             <div className="button-row button-row--center">
-              <a className="button button--aqua" href="#services">Work With Bryt <ArrowIcon /></a>
-              <a className="button button--ghost" href="#programs">Explore Programs</a>
+              <Link className="button button--aqua" href="/work-with-bryt">Work With Bryt <ArrowIcon /></Link>
+              <Link className="button button--ghost" href="/programs">Explore Programs</Link>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="site-shell footer-grid">
-          <div className="footer-brand">
-            <a className="brand-link brand-link--footer" href="#top">
-              <BrandMark alt="" />
-              <span>Bryt Kids</span>
-            </a>
-            <p>Faith. Character. Confidence. Lifelong learning.</p>
-          </div>
-          <nav className="footer-links" aria-label={content.accessibility.footerNavigation}>
-            <p>Explore</p>
-            {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
-          </nav>
-          <div className="footer-note">
-            <p className="eyebrow eyebrow--light">A little Bryt in your inbox</p>
-            <h2>Thoughtful ideas.<br />No noise.</h2>
-            <span>Newsletter coming soon.</span>
-          </div>
-        </div>
-        <div className="site-shell footer-bottom">
-          <p>© {new Date().getFullYear()} Bryt Kids</p>
-          <p>Raise Children Intentionally.</p>
-        </div>
-      </footer>
-
-      <DestinationLink
-        destination={siteConfig.whatsapp}
-        className="whatsapp-button"
-        disabledTitle="Bryt WhatsApp will be available soon."
-        statusLabel="Soon"
-      >
-        <WhatsAppIcon />
-        <span>Chat with Bryt</span>
-      </DestinationLink>
+      <SiteFooter />
+      <FloatingWhatsApp />
     </div>
   );
 }
