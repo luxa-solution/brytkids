@@ -14,6 +14,7 @@ const offers = [
     number: "01",
     title: "1:1 Consultation",
     copy: "A focused conversation around one parenting, homeschooling or family challenge, so you leave with clarity and practical next steps.",
+    label: "For a focused challenge",
     points: ["A specific challenge", "A fresh perspective", "Clear next actions"],
     tone: "coral",
   },
@@ -21,6 +22,7 @@ const offers = [
     number: "02",
     title: "Private Coaching",
     copy: "Ongoing guidance for parents who want accountability, stronger family systems and a more intentional way of raising their children.",
+    label: "For ongoing growth",
     points: ["Consistent support", "Personalised strategy", "Accountability over time"],
     tone: "aqua",
   },
@@ -28,6 +30,7 @@ const offers = [
     number: "03",
     title: "Homeschool Support",
     copy: "Build a homeschool experience that fits your children, reflects your values and works within the reality of your family life.",
+    label: "For home educators",
     points: ["Curriculum direction", "Learning rhythms", "A purposeful home environment"],
     tone: "yellow",
   },
@@ -35,6 +38,7 @@ const offers = [
     number: "04",
     title: "Family Strategy",
     copy: "Turn the values and hopes you hold for your family into practical routines, habits and a clearer long-term direction.",
+    label: "For the whole family",
     points: ["Shared family values", "Home systems", "Intentional family goals"],
     tone: "lilac",
   },
@@ -67,7 +71,9 @@ export default function ServicesPage() {
             <div className="detail-card-grid">
               {offers.map((offer) => (
                 <article key={offer.title} className={`detail-card detail-card--${offer.tone}`}>
-                  <div className="detail-card__index">/{offer.number}</div>
+                  <span className="detail-card__shape" aria-hidden="true" />
+                  <p className="detail-card__tag">{offer.label}</p>
+                  <div className="detail-card__index">{offer.number}</div>
                   <h2>{offer.title}</h2>
                   <p>{offer.copy}</p>
                   <ul>{offer.points.map((point) => <li key={point}>{point}</li>)}</ul>
