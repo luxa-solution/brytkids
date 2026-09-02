@@ -15,9 +15,15 @@ export default function ProgramsPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="Programs"
-          title="Programs for Growing Families"
+          title="Programs for"
+          titleAccent="Growing Families"
           lead="Thoughtfully designed experiences that help children grow and parents become more intentional."
           accent="orange"
+          primaryAction={{ label: "For Parents", href: "/programs/intentional-homeschooling" }}
+          secondaryAction={{ label: "For Children", href: "/programs/bryt-leaders" }}
+          points={["Purposeful", "Practical", "Growth-focused"]}
+          topNote={{ label: "Parent learning", copy: "Lead home with clarity" }}
+          bottomNote={{ label: "Child development", copy: "Skills beyond school" }}
         />
 
         <section className="inner-section">

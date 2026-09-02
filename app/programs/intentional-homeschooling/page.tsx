@@ -30,9 +30,15 @@ export default function IntentionalHomeschoolingPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="For parents"
-          title="Intentional Homeschooling"
+          title="Intentional"
+          titleAccent="Homeschooling"
           lead="Homeschooling is more than bringing school home. It is knowing your child, understanding what matters and creating an environment where they can learn and grow."
           accent="aqua"
+          primaryAction={{ label: "Register Your Interest", href: "/contact" }}
+          secondaryAction={{ label: "View All Programs", href: "/programs" }}
+          points={["Know your child", "Shape your rhythm", "Teach for life"]}
+          topNote={{ label: "Your philosophy", copy: "Purpose before pressure" }}
+          bottomNote={{ label: "Your family rhythm", copy: "Learning that fits home" }}
         />
 
         <section className="inner-section inner-section--soft">

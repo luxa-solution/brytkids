@@ -22,9 +22,15 @@ export default function BrytLeadersPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="For children"
-          title="Bryt Leaders"
+          title="Bryt"
+          titleAccent="Leaders"
           lead="Raising children who can think, speak and lead—a development program for confident communicators, thoughtful leaders and responsible young people."
           accent="orange"
+          primaryAction={{ label: "Ask About Bryt Leaders", href: "/contact" }}
+          secondaryAction={{ label: "View All Programs", href: "/programs" }}
+          points={["Communication", "Character", "Leadership"]}
+          topNote={{ label: "Confident voices", copy: "Ideas expressed clearly" }}
+          bottomNote={{ label: "Responsible leaders", copy: "Character in action" }}
         />
 
         <section className="inner-section">

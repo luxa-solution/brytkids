@@ -46,9 +46,15 @@ export default function ServicesPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="Services"
-          title="How We Help Families"
+          title="How We Help"
+          titleAccent="Families"
           lead="Practical support for parents who want to raise capable, confident, grounded children—and build a home that helps them thrive."
           accent="aqua"
+          primaryAction={{ label: "Find Your Support", href: "/work-with-bryt" }}
+          secondaryAction={{ label: "Explore Programs", href: "/programs" }}
+          points={["Practical", "Personal", "Family-centred"]}
+          topNote={{ label: "Focused guidance", copy: "Built around your needs" }}
+          bottomNote={{ label: "Clear direction", copy: "A useful next step" }}
         />
 
         <section className="inner-section">

@@ -21,9 +21,15 @@ export default function AboutPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="About Bryt Kids"
-          title="Raising Better Humans Begins at Home."
+          title="Raising Better Humans"
+          titleAccent="Begins at Home."
           lead="Bryt Kids exists to help families become more intentional about raising children who are grounded, capable and prepared for life."
           accent="aqua"
+          primaryAction={{ label: "How We Help", href: "/services" }}
+          secondaryAction={{ label: "Our Beliefs", href: "#our-beliefs" }}
+          points={["Faith-led", "Whole-child", "Family-first"]}
+          topNote={{ label: "A strong foundation", copy: "Values lived at home" }}
+          bottomNote={{ label: "Prepared for life", copy: "Capability with character" }}
         />
 
         <section className="inner-section">
@@ -36,7 +42,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="inner-section inner-section--soft">
+        <section id="our-beliefs" className="inner-section inner-section--soft section-anchor">
           <div className="site-shell">
             <ContentHeading eyebrow="What we believe" title="Five beliefs that guide our work." />
             <div className="belief-list">

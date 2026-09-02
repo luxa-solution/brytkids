@@ -23,9 +23,15 @@ export default function WorkWithBrytPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="Work With Bryt"
-          title="Let’s Work Together"
+          title="Let’s Work"
+          titleAccent="Together"
           lead="Every family is different, so the support you need may be different too. Choose the path that fits you."
           accent="orange"
+          primaryAction={{ label: "Tell Us What You Need", href: "/contact" }}
+          secondaryAction={{ label: "Explore Services", href: "/services" }}
+          points={["We listen", "We clarify", "We build a path"]}
+          topNote={{ label: "Your family first", copy: "Support starts by listening" }}
+          bottomNote={{ label: "The right fit", copy: "A path shaped for you" }}
         />
 
         <section className="inner-section conversion-section">

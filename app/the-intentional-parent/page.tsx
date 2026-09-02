@@ -23,9 +23,15 @@ export default function TipPage() {
       <main id="main-content" className="inner-page">
         <InteriorHero
           eyebrow="A Bryt Kids podcast"
-          title="The Intentional Parent"
+          title="The Intentional"
+          titleAccent="Parent"
           lead="Conversations about raising children with faith, character, confidence and purpose. Parenting is too important to do on autopilot."
           accent="pink"
+          primaryAction={{ label: "Watch the Podcast", href: siteConfig.podcast.href, external: true }}
+          secondaryAction={{ label: "Read the Journal", href: "/journal" }}
+          points={["Thoughtful", "Honest", "Practical"]}
+          topNote={{ label: "Real conversations", copy: "Questions that matter" }}
+          bottomNote={{ label: "Useful ideas", copy: "For everyday parenting" }}
         />
 
         <section className="inner-section podcast-intro">
