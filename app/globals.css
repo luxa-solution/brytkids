@@ -1562,11 +1562,9 @@ svg {
 
 .whatsapp-button__icon svg {
 	width: 22px;
-	fill: none;
-	stroke: currentColor;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	stroke-width: 1.7;
+	height: 22px;
+	fill: currentColor;
+	stroke: none;
 }
 
 .whatsapp-button__copy {
@@ -2982,7 +2980,7 @@ body.has-mobile-menu-open {
 
 .journal-themes {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
 	gap: 1.2rem;
 }
 
@@ -3490,6 +3488,12 @@ body.has-mobile-menu-open {
 	.inside-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+	.journal-theme-card,
+	.journal-theme-card:first-child {
+		min-height: 400px;
+		grid-column: auto;
+		grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
+	}
 	.footer-grid--expanded {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
@@ -3566,7 +3570,6 @@ body.has-mobile-menu-open {
 	.skill-grid,
 	.topic-grid,
 	.library-grid,
-	.journal-themes,
 	.footer-grid--expanded {
 		grid-template-columns: 1fr;
 	}
@@ -3583,13 +3586,25 @@ body.has-mobile-menu-open {
 	.inside-grid article,
 	.skill-grid article,
 	.topic-grid article,
-	.library-grid article,
-	.journal-themes article {
+	.library-grid article {
 		min-height: 250px;
 	}
-	.library-grid article,
-	.journal-themes article {
+	.library-grid article {
 		min-height: 320px;
+	}
+
+	.journal-theme-card,
+	.journal-theme-card:first-child {
+		min-height: auto;
+		grid-template-columns: 1fr;
+	}
+
+	.journal-theme-card__art {
+		min-height: 230px;
+	}
+
+	.journal-theme-card__copy {
+		min-height: 350px;
 	}
 
 	.belief-list article,
