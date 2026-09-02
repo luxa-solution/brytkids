@@ -1,6 +1,6 @@
 export type NavigationItem = Readonly<{
   label: string;
-  href: `#${string}`;
+  href: string;
 }>;
 
 export type ServiceContent = Readonly<{

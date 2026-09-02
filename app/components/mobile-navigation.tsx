@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
+import Link from 'next/link';
 import type { NavigationItem } from '../content';
 
 type MobileNavigationProps = {
 	items: readonly NavigationItem[];
+	ctaHref?: string;
 	labels: {
 		open: string;
 		close: string;
@@ -24,7 +26,11 @@ function useHasHydrated() {
 	);
 }
 
-export function MobileNavigation({ items, labels }: MobileNavigationProps) {
+export function MobileNavigation({
+	items,
+	labels,
+	ctaHref = '/work-with-bryt',
+}: MobileNavigationProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	const hasHydrated = useHasHydrated();
@@ -75,22 +81,22 @@ export function MobileNavigation({ items, labels }: MobileNavigationProps) {
 						className='mobile-menu'
 						aria-label={labels.landmark}>
 						{items.map((item, index) => (
-							<a
+							<Link
 								key={item.href}
 								href={item.href}
 								tabIndex={isOpen ? 0 : -1}
 								onClick={() => setIsOpen(false)}>
 								<span>{String(index + 1).padStart(2, '0')}</span>
 								{item.label}
-							</a>
+							</Link>
 						))}
-						<a
+						<Link
 							className='mobile-menu-cta'
-							href='#services'
+							href={ctaHref}
 							tabIndex={isOpen ? 0 : -1}
 							onClick={() => setIsOpen(false)}>
 							{labels.cta}
-						</a>
+						</Link>
 					</nav>
 				</div>
 			</div>

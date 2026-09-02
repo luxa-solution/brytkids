@@ -5,11 +5,11 @@ import type {
 } from "./types";
 
 const primaryNavigation = [
-  { label: "Services", href: "#services" },
-  { label: "Programs", href: "#programs" },
-  { label: "Library", href: "#library" },
-  { label: "Journal", href: "#journal" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/services" },
+  { label: "Programs", href: "/programs" },
+  { label: "Library", href: "/library" },
+  { label: "Journal", href: "/journal" },
+  { label: "About", href: "/about" },
 ] satisfies readonly NavigationItem[];
 
 const services = [
