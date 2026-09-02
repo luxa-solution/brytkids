@@ -10,38 +10,64 @@ import { siteConfig } from "./site-config";
 const services = [
   {
     number: "01",
+    audience: "For parents",
     title: "Parent coaching",
-    description: "Clear, personal guidance for real family challenges.",
+    description: "Personalised guidance for parents who want to lead with greater clarity, confidence and intention.",
+    outcomes: ["Discipline and boundaries", "Communication and connection", "Routines and good habits"],
+    idealFor: "Parents navigating a specific challenge or season",
     tone: "coral",
-    icon: "heart",
   },
   {
     number: "02",
+    audience: "For home educators",
     title: "Homeschool support",
-    description: "Build a learning rhythm that fits your child and home.",
+    description: "Build a thoughtful homeschool experience around your child’s needs, strengths and your family’s goals.",
+    outcomes: ["Curriculum and approach", "Learning environment", "Sustainable daily rhythms"],
+    idealFor: "Families starting, refining or rethinking homeschool",
     tone: "aqua",
-    icon: "book",
   },
   {
     number: "03",
+    audience: "For families",
     title: "Family strategy",
-    description: "Bring more purpose to your routines, values and goals.",
+    description: "Turn the values that matter to your family into clear routines, systems and long-term direction.",
+    outcomes: ["Shared family values", "Home systems and routines", "Intentional family goals"],
+    idealFor: "Families ready to move from good intentions to action",
     tone: "yellow",
-    icon: "home",
   },
   {
     number: "04",
+    audience: "For children",
     title: "Child development",
-    description: "Grow confidence, character, communication and leadership.",
+    description: "Practical development that helps children communicate well, think clearly and carry responsibility.",
+    outcomes: ["Confidence and public speaking", "Character and leadership", "Reading and critical thinking"],
+    idealFor: "Children building essential skills beyond academics",
     tone: "lilac",
-    icon: "spark",
   },
 ] as const;
 
 const values = [
-  { title: "Faith", label: "Strong foundations", tone: "blue" },
-  { title: "Character", label: "Values in action", tone: "orange" },
-  { title: "Confidence", label: "A voice of their own", tone: "pink" },
+  {
+    number: "01",
+    title: "Faith",
+    label: "A clear moral foundation",
+    description: "Strong values and a meaningful sense of purpose shape how children learn, choose and contribute.",
+    tone: "blue",
+  },
+  {
+    number: "02",
+    title: "Character",
+    label: "Who they become matters",
+    description: "Responsibility, good habits and manners grow through consistent example and everyday practice.",
+    tone: "orange",
+  },
+  {
+    number: "03",
+    title: "Confidence",
+    label: "Capability with humility",
+    description: "Children learn to communicate clearly, take responsibility and keep growing without losing their grounding.",
+    tone: "pink",
+  },
 ] as const;
 
 const growthLinks = [
@@ -51,7 +77,8 @@ const growthLinks = [
     description: "Books, activities and tools for growing minds.",
     href: "#library",
     tone: "aqua",
-    mark: "B",
+    mark: "01",
+    areas: ["Children’s books", "Activities and printables", "Parenting guides"],
   },
   {
     eyebrow: "Ideas",
@@ -59,7 +86,8 @@ const growthLinks = [
     description: "Useful thoughts for intentional parents.",
     href: "#journal",
     tone: "coral",
-    mark: "J",
+    mark: "02",
+    areas: ["Parenting", "Homeschooling", "Islamic Tarbiyah"],
   },
   {
     eyebrow: "Listen",
@@ -67,41 +95,10 @@ const growthLinks = [
     description: "Weekly conversations about raising children well.",
     href: "#journal",
     tone: "yellow",
-    mark: "▶",
+    mark: "03",
+    areas: ["Faith and character", "Education", "Family life"],
   },
 ] as const;
-
-function CardIcon({ name }: { name: (typeof services)[number]["icon"] }) {
-  if (name === "heart") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.8A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" />
-      </svg>
-    );
-  }
-
-  if (name === "book") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z" />
-      </svg>
-    );
-  }
-
-  if (name === "home") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m3 11 9-8 9 8v10h-6v-6H9v6H3V11Z" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2Zm7 14 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z" />
-    </svg>
-  );
-}
 
 export default function Home() {
   const navigation = content.navigation.primary;
@@ -113,7 +110,7 @@ export default function Home() {
       </a>
 
       <div className="announcement">
-        <span aria-hidden="true">✦</span>
+        <span aria-hidden="true" />
         Raising capable children starts with intentional choices.
       </div>
 
@@ -187,15 +184,15 @@ export default function Home() {
                 />
               </div>
               <div className="floating-card floating-card--top">
-                <span className="floating-icon">✦</span>
+                <span className="floating-icon">01</span>
                 <span><strong>Growing minds</strong>Curiosity encouraged</span>
               </div>
               <div className="floating-card floating-card--bottom">
-                <span className="floating-icon floating-icon--green">✓</span>
+                <span className="floating-icon floating-icon--green">02</span>
                 <span><strong>Real support</strong>For real family life</span>
               </div>
               <span className="hero-doodle hero-doodle--ring" aria-hidden="true" />
-              <span className="hero-doodle hero-doodle--star" aria-hidden="true">✦</span>
+              <span className="hero-doodle hero-doodle--square" aria-hidden="true" />
             </div>
           </div>
           <div className="wave" aria-hidden="true" />
@@ -211,15 +208,26 @@ export default function Home() {
 
             <div className="values-grid">
               <article className="value-feature">
-                <div className="value-orbit" aria-hidden="true"><span>B</span></div>
-                <p>Education is bigger than school.</p>
+                <p className="value-feature__kicker">Education is bigger than school.</p>
                 <h3>Home is where a lifetime of learning begins.</h3>
+                <p className="value-feature__body">
+                  Bryt brings parenting, education, character development and practical life skills together—so families can nurture capable, grounded children.
+                </p>
+                <ul className="value-principles" aria-label="The Bryt approach">
+                  <li>Thoughtful parenting</li>
+                  <li>Meaningful education</li>
+                  <li>Practical guidance</li>
+                </ul>
                 <a href="#services">See how we help <ArrowIcon /></a>
               </article>
               {values.map((value) => (
                 <article key={value.title} className={`value-card value-card--${value.tone}`}>
-                  <span className="value-symbol" aria-hidden="true">✦</span>
-                  <div><h3>{value.title}</h3><p>{value.label}</p></div>
+                  <span className="value-number">{value.number}</span>
+                  <div className="value-card__copy">
+                    <p className="value-label">{value.label}</p>
+                    <h3>{value.title}</h3>
+                    <p>{value.description}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -237,12 +245,21 @@ export default function Home() {
               {services.map((service) => (
                 <article key={service.title} className={`service-card service-card--${service.tone}`}>
                   <div className="service-card__top">
-                    <span className="service-icon"><CardIcon name={service.icon} /></span>
-                    <span className="service-number">{service.number}</span>
+                    <span className="service-audience">{service.audience}</span>
+                    <span className="service-number">/{service.number}</span>
                   </div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                  <a href="#contact" aria-label={`Ask about ${service.title}`}><ArrowIcon /></a>
+                  <div className="service-includes">
+                    <span>Support can include</span>
+                    <ul>
+                      {service.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
+                    </ul>
+                  </div>
+                  <div className="service-card__footer">
+                    <p><span>Best for</span>{service.idealFor}</p>
+                    <a href="#contact" aria-label={`Ask about ${service.title}`}>Explore service <ArrowIcon /></a>
+                  </div>
                 </article>
               ))}
             </div>
@@ -260,13 +277,18 @@ export default function Home() {
               <article className="program-card program-card--parents">
                 <div className="program-art" aria-hidden="true">
                   <span className="program-art__book" />
-                  <span className="program-art__sun">✦</span>
+                  <span className="program-art__sun" />
                   <span className="program-art__line" />
                 </div>
                 <div className="program-copy">
                   <span className="card-tag">For parents</span>
                   <h3>Intentional Homeschooling</h3>
-                  <p>A clear, practical framework for learning with purpose at home.</p>
+                  <p>Build an education around your child’s needs, strengths, character and future—with clarity and confidence.</p>
+                  <ul className="program-details">
+                    <li>Video and audio lessons</li>
+                    <li>Practical exercises</li>
+                    <li>Homeschool journal</li>
+                  </ul>
                   <a className="button button--dark" href="#contact">Explore the course <ArrowIcon /></a>
                 </div>
               </article>
@@ -274,12 +296,17 @@ export default function Home() {
               <article className="program-card program-card--children">
                 <div className="program-art program-art--leaders" aria-hidden="true">
                   <span className="speech-bubble">I can!</span>
-                  <span className="leader-shape">★</span>
+                  <span className="leader-shape">+</span>
                 </div>
                 <div className="program-copy">
                   <span className="card-tag">For children</span>
                   <h3>Bryt Leaders</h3>
-                  <p>Communication, confidence, character and leadership for life.</p>
+                  <p>A development program for confident communicators, thoughtful leaders and responsible young people.</p>
+                  <ul className="program-details">
+                    <li>Public speaking</li>
+                    <li>Critical thinking</li>
+                    <li>Character and habits</li>
+                  </ul>
                   <a className="button button--dark" href="#contact">Explore Bryt Leaders <ArrowIcon /></a>
                 </div>
               </article>
@@ -294,10 +321,11 @@ export default function Home() {
               <h2>Getting started is simple.</h2>
             </div>
             <ol className="journey-steps">
-              <li><span>01</span><h3>Tell us what matters</h3><p>Share your family’s goal.</p></li>
-              <li><span>02</span><h3>Choose your support</h3><p>Find the right service or program.</p></li>
-              <li><span>03</span><h3>Grow with intention</h3><p>Take the next clear step together.</p></li>
+              <li><span>01</span><h3>Tell us what matters</h3><p>Share the challenge, goal or change your family is working towards.</p></li>
+              <li><span>02</span><h3>Choose your support</h3><p>We’ll help you identify the service or program that fits your needs.</p></li>
+              <li><span>03</span><h3>Grow with intention</h3><p>Leave with practical direction you can carry into everyday family life.</p></li>
             </ol>
+            <p className="journey-note">Personalised guidance. Clear next steps. No one-size-fits-all answers.</p>
           </div>
         </section>
 
@@ -314,6 +342,9 @@ export default function Home() {
                   <span className="eyebrow">{item.eyebrow}</span>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
+                  <ul className="explore-areas">
+                    {item.areas.map((area) => <li key={area}>{area}</li>)}
+                  </ul>
                   <span className="explore-arrow"><ArrowIcon /></span>
                 </a>
               ))}
@@ -324,7 +355,7 @@ export default function Home() {
         <section id="contact" className="final-cta section-anchor">
           <div className="site-shell final-cta__panel">
             <span className="cta-shape cta-shape--one" aria-hidden="true" />
-            <span className="cta-shape cta-shape--two" aria-hidden="true">✦</span>
+            <span className="cta-shape cta-shape--two" aria-hidden="true" />
             <p className="pill-label pill-label--dark">Start your journey</p>
             <h2>Ready to raise intentionally?</h2>
             <p>Choose the support your family needs. We’ll take it from there.</p>
