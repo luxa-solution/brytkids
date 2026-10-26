@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
   title: "The Bryt Library | Bryt Kids",
@@ -23,6 +24,7 @@ export default function LibraryPage() {
           title="Simple Resources for"
           titleAccent="Growing Minds"
           lead="Thoughtfully created books, audios, activities and parent resources that make learning part of everyday family life."
+          image={heroImages.library}
           accent="yellow"
           primaryAction={{ label: "Browse Resources", href: "#library-collection" }}
           secondaryAction={{ label: "Ask Bryt", href: "/contact" }}

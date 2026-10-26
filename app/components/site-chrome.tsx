@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaInstagram, FaYoutube } from "react-icons/fa6";
+import { siteAssets } from "../asset-config";
 import { content } from "../content";
 import { siteConfig, siteNavigation } from "../site-config";
 import { BrandMark } from "./brand-mark";
@@ -21,7 +22,7 @@ export function SiteHeader() {
             href="/"
             aria-label={content.site.homeLabel}
           >
-            <BrandMark alt="" priority />
+            <BrandMark asset={siteAssets.navLogo} alt="" priority />
             <span>Bryt Kids</span>
           </Link>
 
@@ -66,8 +67,7 @@ export function SiteFooter() {
       <div className="site-shell footer-grid footer-grid--expanded">
         <div className="footer-brand">
           <Link className="brand-link brand-link--footer" href="/">
-            <BrandMark alt="" />
-            <span>Bryt Kids</span>
+            <BrandMark asset={siteAssets.footerLogo} alt="" variant="footer" />
           </Link>
           <p>
             Helping parents raise children of faith, character, confidence and

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import familyLearning from "../../public/images/bryt-family-learning.webp";
+import type { HeroImage } from "../hero-images";
 import { ArrowIcon } from "./icons";
 
 type HeroAction = {
@@ -19,6 +19,7 @@ export function InteriorHero({
   title,
   titleAccent,
   lead,
+  image,
   accent = "aqua",
   aside,
   primaryAction,
@@ -31,6 +32,7 @@ export function InteriorHero({
   title: string;
   titleAccent?: string;
   lead: string;
+  image: HeroImage;
   accent?: "aqua" | "orange" | "pink" | "yellow";
   aside?: React.ReactNode;
   primaryAction?: HeroAction;
@@ -76,8 +78,8 @@ export function InteriorHero({
             <>
               <div className="inner-hero__image">
                 <Image
-                  src={familyLearning}
-                  alt="A male teacher supporting a male student as he writes in a blank notebook"
+                  src={image.src}
+                  alt={image.alt}
                   fill
                   priority
                   sizes="(max-width: 980px) 86vw, 42vw"

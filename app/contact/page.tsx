@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "../components/contact-form";
 import { InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 import { siteConfig } from "../site-config";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function ContactPage() {
           title="Let’s"
           titleAccent="Talk"
           lead="Have a question, need support, or want to work with Bryt? We’d love to hear from you."
+          image={heroImages.contact}
           accent="aqua"
           primaryAction={{ label: "Chat on WhatsApp", href: siteConfig.whatsapp.href, external: true }}
           secondaryAction={{ label: "Send an Email", href: `mailto:${siteConfig.email}`, external: true }}
