@@ -4,7 +4,6 @@ import contactWelcome from "../public/images/hero/contact-welcome.webp";
 import homeschoolStudy from "../public/images/hero/homeschool-study.webp";
 import journalWriting from "../public/images/hero/journal-writing.webp";
 import leadersPresenting from "../public/images/hero/leaders-presenting.webp";
-import libraryStories from "../public/images/hero/library-stories.webp";
 import podcastStudio from "../public/images/hero/podcast-studio.webp";
 import programsCreative from "../public/images/hero/programs-creative.webp";
 import servicesPlanning from "../public/images/hero/services-planning.webp";
@@ -29,8 +28,8 @@ export const heroImages = {
     alt: "A hand writing notes in a notebook beside a laptop",
   },
   library: {
-    src: libraryStories,
-    alt: "A stack of children's picture books beside a cup of coloured pencils",
+    src: homeschoolStudy,
+    alt: "An open book with coloured pencils and a magnifying glass on a study desk",
   },
   programs: {
     src: programsCreative,

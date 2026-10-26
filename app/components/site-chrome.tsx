@@ -7,6 +7,7 @@ import { BrandMark } from "./brand-mark";
 import { DestinationLink } from "./destination-link";
 import { ArrowIcon, WhatsAppIcon } from "./icons";
 import { MobileNavigation } from "./mobile-navigation";
+import { DesktopNavigation, HeaderCta } from "./site-navigation";
 
 export function SiteHeader() {
   return (
@@ -26,24 +27,12 @@ export function SiteHeader() {
             <span>Bryt Kids</span>
           </Link>
 
-          <nav
-            className="desktop-navigation"
-            aria-label={content.accessibility.primaryNavigation}
-          >
-            {siteNavigation.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <DesktopNavigation
+            items={siteNavigation}
+            label={content.accessibility.primaryNavigation}
+          />
 
-          <Link
-            className="button button--small button--primary header-cta"
-            href="/work-with-bryt"
-          >
-            Work With Bryt
-            <ArrowIcon />
-          </Link>
+          <HeaderCta href="/work-with-bryt" label="Work With Bryt" />
 
           <MobileNavigation
             items={siteNavigation}
