@@ -42,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang={content.locale}
       className={`${instrumentSans.variable} ${newsreader.variable}`}
+      suppressHydrationWarning
     >
       <body>{children}</body>
     </html>
