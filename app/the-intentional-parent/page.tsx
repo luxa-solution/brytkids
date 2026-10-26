@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ActionLink, ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 import { siteConfig } from "../site-config";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function TipPage() {
           title="The Intentional"
           titleAccent="Parent"
           lead="Conversations about raising children with faith, character, confidence and purpose. Parenting is too important to do on autopilot."
+          image={heroImages.podcast}
           accent="pink"
           primaryAction={{ label: "Watch the Podcast", href: siteConfig.podcast.href, external: true }}
           secondaryAction={{ label: "Read the Journal", href: "/journal" }}

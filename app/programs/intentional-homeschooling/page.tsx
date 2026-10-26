@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClosingCta, ContentHeading, InteriorHero } from "../../components/interior-page";
 import { PageFrame } from "../../components/site-chrome";
+import { heroImages } from "../../hero-images";
 
 export const metadata: Metadata = {
   title: "Intentional Homeschooling | Bryt Kids",
@@ -33,6 +34,7 @@ export default function IntentionalHomeschoolingPage() {
           title="Intentional"
           titleAccent="Homeschooling"
           lead="Homeschooling is more than bringing school home. It is knowing your child, understanding what matters and creating an environment where they can learn and grow."
+          image={heroImages.homeschooling}
           accent="aqua"
           primaryAction={{ label: "Register Your Interest", href: "/contact" }}
           secondaryAction={{ label: "View All Programs", href: "/programs" }}

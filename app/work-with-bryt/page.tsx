@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowIcon } from "../components/icons";
 import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 import { siteConfig } from "../site-config";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function WorkWithBrytPage() {
           title="Let’s Work"
           titleAccent="Together"
           lead="Every family is different, so the support you need may be different too. Choose the path that fits you."
+          image={heroImages.workWithBryt}
           accent="orange"
           primaryAction={{ label: "Tell Us What You Need", href: "/contact" }}
           secondaryAction={{ label: "Explore Services", href: "/services" }}

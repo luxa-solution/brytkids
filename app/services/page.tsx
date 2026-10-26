@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowIcon } from "../components/icons";
 import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
   title: "Services | Bryt Kids",
@@ -53,6 +54,7 @@ export default function ServicesPage() {
           title="How We Help"
           titleAccent="Families"
           lead="Practical support for parents who want to raise capable, confident, grounded children and build a home that helps them thrive."
+          image={heroImages.services}
           accent="aqua"
           primaryAction={{ label: "Find Your Support", href: "/work-with-bryt" }}
           secondaryAction={{ label: "Explore Programs", href: "/programs" }}

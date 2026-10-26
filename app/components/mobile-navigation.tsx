@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { NavigationItem } from '../content';
+import { isPathActive } from './site-navigation';
 
 type MobileNavigationProps = {
 	items: readonly NavigationItem[];
@@ -34,6 +36,8 @@ export function MobileNavigation({
 	const [isOpen, setIsOpen] = useState(false);
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	const hasHydrated = useHasHydrated();
+	const pathname = usePathname();
+	const ctaActive = isPathActive(pathname, ctaHref);
 
 	useEffect(() => {
 		if (!isOpen) return;
@@ -80,20 +84,26 @@ export function MobileNavigation({
 					<nav
 						className='mobile-menu'
 						aria-label={labels.landmark}>
-						{items.map((item, index) => (
-							<Link
-								key={item.href}
-								href={item.href}
-								tabIndex={isOpen ? 0 : -1}
-								onClick={() => setIsOpen(false)}>
-								<span>{String(index + 1).padStart(2, '0')}</span>
-								{item.label}
-							</Link>
-						))}
+						{items.map((item, index) => {
+							const active = isPathActive(pathname, item.href);
+
+							return (
+								<Link
+									key={item.href}
+									href={item.href}
+									tabIndex={isOpen ? 0 : -1}
+									aria-current={active ? 'page' : undefined}
+									onClick={() => setIsOpen(false)}>
+									<span>{String(index + 1).padStart(2, '0')}</span>
+									{item.label}
+								</Link>
+							);
+						})}
 						<Link
 							className='mobile-menu-cta'
 							href={ctaHref}
 							tabIndex={isOpen ? 0 : -1}
+							aria-current={ctaActive ? 'page' : undefined}
 							onClick={() => setIsOpen(false)}>
 							{labels.cta}
 						</Link>

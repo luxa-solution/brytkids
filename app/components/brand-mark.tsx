@@ -1,22 +1,26 @@
 import Image from "next/image";
-import { siteAssets, type ImageAsset } from "../asset-config";
+import type { ImageAsset } from "../asset-config";
 
 export function BrandMark({
+  asset,
   alt,
+  variant = "nav",
   priority = false,
 }: {
+  asset: ImageAsset;
   alt: string;
+  variant?: "nav" | "footer";
   priority?: boolean;
 }) {
   return (
-    <span className="brand-mark">
+    <span className={`brand-mark brand-mark--${variant}`}>
       <Image
-        src={siteAssets.logo.src}
+        src={asset.src}
         alt={alt}
-        width={64}
-        height={64}
+        width={256}
+        height={256}
         priority={priority}
-        sizes="64px"
+        sizes="(max-width: 640px) 46px, 72px"
       />
     </span>
   );

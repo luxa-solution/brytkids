@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
   title: "About | Bryt Kids",
@@ -24,6 +25,7 @@ export default function AboutPage() {
           title="Raising Better Humans"
           titleAccent="Begins at Home."
           lead="Bryt Kids exists to help families become more intentional about raising children who are grounded, capable and prepared for life."
+          image={heroImages.about}
           accent="aqua"
           primaryAction={{ label: "How We Help", href: "/services" }}
           secondaryAction={{ label: "Our Beliefs", href: "#our-beliefs" }}

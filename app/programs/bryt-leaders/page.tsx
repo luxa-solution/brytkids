@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClosingCta, ContentHeading, InteriorHero } from "../../components/interior-page";
 import { PageFrame } from "../../components/site-chrome";
+import { heroImages } from "../../hero-images";
 
 export const metadata: Metadata = {
   title: "Bryt Leaders | Bryt Kids",
@@ -25,6 +26,7 @@ export default function BrytLeadersPage() {
           title="Bryt"
           titleAccent="Leaders"
           lead="Raising children who can think, speak and lead. A development program for confident communicators, thoughtful leaders and responsible young people."
+          image={heroImages.brytLeaders}
           accent="orange"
           primaryAction={{ label: "Ask About Bryt Leaders", href: "/contact" }}
           secondaryAction={{ label: "View All Programs", href: "/programs" }}

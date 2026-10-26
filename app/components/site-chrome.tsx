@@ -1,36 +1,38 @@
 import Link from "next/link";
 import { FaInstagram, FaYoutube } from "react-icons/fa6";
+import { siteAssets } from "../asset-config";
 import { content } from "../content";
 import { siteConfig, siteNavigation } from "../site-config";
 import { BrandMark } from "./brand-mark";
 import { DestinationLink } from "./destination-link";
 import { ArrowIcon, WhatsAppIcon } from "./icons";
 import { MobileNavigation } from "./mobile-navigation";
+import { DesktopNavigation, HeaderCta } from "./site-navigation";
 
 export function SiteHeader() {
   return (
     <>
-      <div className="announcement">
+      {/* <div className="announcement">
         <span aria-hidden="true" />
         Raising capable children starts with intentional choices.
-      </div>
+      </div> */}
       <header className="site-header">
         <div className="site-shell header-pill">
-          <Link className="brand-link" href="/" aria-label={content.site.homeLabel}>
-            <BrandMark alt="" priority />
+          <Link
+            className="brand-link"
+            href="/"
+            aria-label={content.site.homeLabel}
+          >
+            <BrandMark asset={siteAssets.navLogo} alt="" priority />
             <span>Bryt Kids</span>
           </Link>
 
-          <nav className="desktop-navigation" aria-label={content.accessibility.primaryNavigation}>
-            {siteNavigation.map((item) => (
-              <Link key={item.href} href={item.href}>{item.label}</Link>
-            ))}
-          </nav>
+          <DesktopNavigation
+            items={siteNavigation}
+            label={content.accessibility.primaryNavigation}
+          />
 
-          <Link className="button button--small button--primary header-cta" href="/work-with-bryt">
-            Work With Bryt
-            <ArrowIcon />
-          </Link>
+          <HeaderCta href="/work-with-bryt" label="Work With Bryt" />
 
           <MobileNavigation
             items={siteNavigation}
@@ -54,19 +56,28 @@ export function SiteFooter() {
       <div className="site-shell footer-grid footer-grid--expanded">
         <div className="footer-brand">
           <Link className="brand-link brand-link--footer" href="/">
-            <BrandMark alt="" />
-            <span>Bryt Kids</span>
+            <BrandMark asset={siteAssets.footerLogo} alt="" variant="footer" />
           </Link>
-          <p>Helping parents raise children of faith, character, confidence and lifelong learning.</p>
+          <p>
+            Helping parents raise children of faith, character, confidence and
+            lifelong learning.
+          </p>
           <div className="footer-direct">
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>
           </div>
         </div>
 
-        <nav className="footer-links" aria-label={content.accessibility.footerNavigation}>
+        <nav
+          className="footer-links"
+          aria-label={content.accessibility.footerNavigation}
+        >
           <p>Explore</p>
-          {siteNavigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+          {siteNavigation.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
           <Link href="/the-intentional-parent">TIP Podcast</Link>
         </nav>
 
@@ -81,10 +92,14 @@ export function SiteFooter() {
         <div className="footer-note">
           <p className="eyebrow eyebrow--light">Let’s talk</p>
           <h2>Not sure where to begin?</h2>
-          <p>Tell us what your family needs and we’ll point you towards a helpful next step.</p>
+          <p>
+            Tell us what your family needs and we’ll point you towards a helpful
+            next step.
+          </p>
           <div className="footer-socials">
             {siteConfig.socialLinks.map((item) => {
-              const SocialIcon = item.key === "instagram" ? FaInstagram : FaYoutube;
+              const SocialIcon =
+                item.key === "instagram" ? FaInstagram : FaYoutube;
 
               return (
                 <a
@@ -95,7 +110,9 @@ export function SiteFooter() {
                   rel="noreferrer"
                   aria-label={`Follow Bryt Kids on ${item.label}`}
                 >
-                  <span className="footer-social__icon"><SocialIcon aria-hidden="true" /></span>
+                  <span className="footer-social__icon">
+                    <SocialIcon aria-hidden="true" />
+                  </span>
                   <span>{item.label}</span>
                 </a>
               );
@@ -119,9 +136,16 @@ export function FloatingWhatsApp() {
       className="whatsapp-button"
       disabledTitle="Bryt WhatsApp is currently unavailable."
     >
-      <span className="whatsapp-button__icon"><WhatsAppIcon /></span>
-      <span className="whatsapp-button__copy"><small>Direct support</small><strong>Chat with Bryt</strong></span>
-      <span className="whatsapp-button__arrow"><ArrowIcon /></span>
+      <span className="whatsapp-button__icon">
+        <WhatsAppIcon />
+      </span>
+      <span className="whatsapp-button__copy">
+        <small>Direct support</small>
+        <strong>Chat with Bryt</strong>
+      </span>
+      <span className="whatsapp-button__arrow">
+        <ArrowIcon />
+      </span>
     </DestinationLink>
   );
 }
@@ -129,7 +153,9 @@ export function FloatingWhatsApp() {
 export function PageFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="site-page">
-      <a className="skip-link" href="#main-content">{content.accessibility.skipToContent}</a>
+      <a className="skip-link" href="#main-content">
+        {content.accessibility.skipToContent}
+      </a>
       <SiteHeader />
       {children}
       <SiteFooter />

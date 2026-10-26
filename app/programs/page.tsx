@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowIcon } from "../components/icons";
 import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
 import { PageFrame } from "../components/site-chrome";
+import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
   title: "Programs | Bryt Kids",
@@ -18,6 +19,7 @@ export default function ProgramsPage() {
           title="Programs for"
           titleAccent="Growing Families"
           lead="Thoughtfully designed experiences that help children grow and parents become more intentional."
+          image={heroImages.programs}
           accent="orange"
           primaryAction={{ label: "For Parents", href: "/programs/intentional-homeschooling" }}
           secondaryAction={{ label: "For Children", href: "/programs/bryt-leaders" }}

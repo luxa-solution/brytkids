@@ -140,16 +140,30 @@ svg {
 
 .brand-mark {
 	display: grid;
-	width: 44px;
-	height: 44px;
+	flex: none;
+	width: 52px;
+	height: 52px;
 	place-items: center;
 	overflow: hidden;
-	border-radius: 14px;
+	border-radius: 15px;
+	background: var(--cream);
+	box-shadow: 0 0 0 1px rgb(32 47 102 / 8%);
 }
 
 .brand-mark img {
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
+	transform: scale(1.98);
+	transform-origin: center;
+}
+
+.brand-mark--footer {
+	width: 72px;
+	height: 72px;
+	border-radius: 18px;
+	background: var(--navy);
+	box-shadow: 0 0 0 1px rgb(255 255 255 / 16%);
 }
 
 .desktop-navigation {
@@ -184,6 +198,22 @@ svg {
 .desktop-navigation a:focus-visible::after {
 	transform: scaleX(1);
 	transform-origin: left;
+}
+
+.desktop-navigation a[aria-current='page'] {
+	color: var(--navy-deep);
+	font-weight: 800;
+}
+
+.desktop-navigation a[aria-current='page']::after {
+	background: var(--navy-deep);
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+.header-cta[aria-current='page'] {
+	background: var(--navy-deep);
+	box-shadow: 0 0 0 3px var(--aqua-soft), 0 10px 22px rgb(23 35 79 / 18%);
 }
 
 .button {
@@ -1789,6 +1819,19 @@ body.has-mobile-menu-open {
 		letter-spacing: 0.08em;
 	}
 
+	.mobile-menu a[aria-current='page']:not(.mobile-menu-cta) {
+		margin-inline: -0.4rem;
+		padding-inline: 1.25rem;
+		border-bottom-color: transparent;
+		border-radius: 14px;
+		background: var(--aqua-soft);
+		color: var(--navy-deep);
+	}
+
+	.mobile-menu a[aria-current='page'] span {
+		color: var(--navy-deep);
+	}
+
 	.mobile-menu .mobile-menu-cta {
 		justify-content: center;
 		margin-top: 0.8rem;
@@ -1877,8 +1920,13 @@ body.has-mobile-menu-open {
 	}
 
 	.brand-mark {
-		width: 40px;
-		height: 40px;
+		width: 46px;
+		height: 46px;
+	}
+
+	.brand-mark--footer {
+		width: 64px;
+		height: 64px;
 	}
 
 	.brand-link {

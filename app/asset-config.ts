@@ -5,8 +5,13 @@ export type ImageAsset = Readonly<{
 }>;
 
 export const siteAssets = {
-  logo: {
-    src: "/icon.svg",
+  navLogo: {
+    src: "/brand/bryt1.jpg",
+    alt: "",
+    fit: "contain",
+  },
+  footerLogo: {
+    src: "/brand/bryt2.jpg",
     alt: "",
     fit: "contain",
   },
@@ -28,6 +33,7 @@ export const siteAssets = {
     },
   },
 } as const satisfies {
-  logo: ImageAsset;
+  navLogo: ImageAsset;
+  footerLogo: ImageAsset;
   editorial: Record<string, ImageAsset>;
 };
