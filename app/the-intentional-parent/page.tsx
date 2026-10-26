@@ -60,7 +60,21 @@ export default function TipPage() {
 
         <section className="inner-section latest-panel-section">
           <div className="site-shell latest-panel">
-            <div><p className="eyebrow">Listen & watch</p><h2>Podcast episodes, in one place.</h2></div>
+            <div className="latest-panel__intro">
+              <p className="eyebrow">Listen & watch</p>
+              <h2>Podcast episodes, in one place.</h2>
+              <div className="podcast-wave" aria-hidden="true">
+                {[14, 26, 18, 34, 22, 30, 16, 24].map((height, index) => (
+                  <span
+                    key={height}
+                    style={{
+                      height: `${height}px`,
+                      animationDelay: `${index * -90}ms`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
             <p>Watch the current Bryt Kids podcast playlist on YouTube. Additional listening platforms can be added as they become available.</p>
             <ActionLink href={siteConfig.podcast.href} external>Open the Playlist</ActionLink>
           </div>
