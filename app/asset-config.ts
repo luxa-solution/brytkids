@@ -6,12 +6,12 @@ export type ImageAsset = Readonly<{
 
 export const siteAssets = {
   navLogo: {
-    src: "/brand/bryt1.jpg",
+    src: "/Bryt%20Kids%20Logos.svg",
     alt: "",
     fit: "contain",
   },
   footerLogo: {
-    src: "/brand/bryt2.jpg",
+    src: "/Bryt%20Kids%20Logos.svg",
     alt: "",
     fit: "contain",
   },

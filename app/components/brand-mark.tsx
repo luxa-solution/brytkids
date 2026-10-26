@@ -21,6 +21,8 @@ export function BrandMark({
         height={256}
         priority={priority}
         sizes="(max-width: 640px) 46px, 72px"
+        unoptimized
+        style={{ objectFit: asset.fit ?? "cover" }}
       />
     </span>
   );
