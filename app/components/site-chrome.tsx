@@ -24,7 +24,6 @@ export function SiteHeader() {
             aria-label={content.site.homeLabel}
           >
             <BrandMark asset={siteAssets.navLogo} alt="" priority />
-            <span>Bryt Kids</span>
           </Link>
 
           <DesktopNavigation
@@ -55,7 +54,11 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-shell footer-grid footer-grid--expanded">
         <div className="footer-brand">
-          <Link className="brand-link brand-link--footer" href="/">
+          <Link
+            className="brand-link brand-link--footer"
+            href="/"
+            aria-label={content.site.homeLabel}
+          >
             <BrandMark asset={siteAssets.footerLogo} alt="" variant="footer" />
           </Link>
           <p>
