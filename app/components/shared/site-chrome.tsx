@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FaInstagram, FaYoutube } from "react-icons/fa6";
-import { siteAssets } from "../asset-config";
-import { content } from "../content";
-import { siteConfig, siteNavigation } from "../site-config";
+import { siteAssets } from "../../asset-config";
+import { content } from "../../content";
+import { siteConfig, siteNavigation } from "../../site-config";
 import { BrandMark } from "./brand-mark";
 import { DestinationLink } from "./destination-link";
 import { ArrowIcon, WhatsAppIcon } from "./icons";

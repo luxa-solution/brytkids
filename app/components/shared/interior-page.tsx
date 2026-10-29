@@ -1,6 +1,7 @@
+import { SectionHeading } from "./section-heading";
 import Image from "next/image";
 import Link from "next/link";
-import type { HeroImage } from "../hero-images";
+import type { HeroImage } from "../../hero-images";
 import { ArrowIcon } from "./icons";
 
 type HeroAction = {
@@ -113,11 +114,7 @@ export function ContentHeading({
   copy?: string;
 }) {
   return (
-    <div className="inner-heading">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      {copy ? <p>{copy}</p> : null}
-    </div>
+    <SectionHeading eyebrow={eyebrow} title={title} copy={copy} layout="interior" />
   );
 }
 
@@ -145,36 +142,4 @@ export function ActionLink({
   return <Link className={className} href={href}>{children}<ArrowIcon /></Link>;
 }
 
-export function ClosingCta({
-  eyebrow = "Take the next step",
-  title,
-  copy,
-  primaryLabel = "Work With Bryt",
-  primaryHref = "/work-with-bryt",
-  secondaryLabel,
-  secondaryHref,
-}: {
-  eyebrow?: string;
-  title: string;
-  copy: string;
-  primaryLabel?: string;
-  primaryHref?: string;
-  secondaryLabel?: string;
-  secondaryHref?: string;
-}) {
-  return (
-    <section className="inner-closing">
-      <div className="site-shell inner-closing__panel">
-        <p className="eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
-        <p>{copy}</p>
-        <div className="button-row button-row--center">
-          <ActionLink href={primaryHref}>{primaryLabel}</ActionLink>
-          {secondaryLabel && secondaryHref ? (
-            <ActionLink href={secondaryHref} secondary>{secondaryLabel}</ActionLink>
-          ) : null}
-        </div>
-      </div>
-    </section>
-  );
-}
+export { ClosingCta } from "./closing-cta";

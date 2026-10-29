@@ -1,0 +1,49 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 2.5rem 2.5rem 4rem 2.5rem;
+  isolation: isolate;
+}
+.art { width: 10rem; margin: -0.5rem 0 0.5rem auto; }
+.illustration { width: 100%; overflow: visible; }
+.orbit { color: var(--card-line, var(--page-accent)); opacity: 0.3; }
+.trail { color: var(--card-line, var(--page-accent)); opacity: 0.55; }
+.drawing { color: var(--card-line, var(--page-accent)); transform-origin: center; }
+.doodles { transform-origin: center; }
+.copy { display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+.eyebrow { margin: 0 0 0.75rem; color: var(--card-label); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.card h3 { margin: 0 0 1rem; max-width: 18ch; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.045em; }
+.description { margin: 0; max-width: 44ch; color: var(--card-body); line-height: 1.75; }
+.card ul { display: grid; gap: 0.5rem; padding: 0; margin: 1.5rem 0; list-style: none; }
+.card li { display: flex; align-items: baseline; gap: 0.75rem; color: var(--card-body); font-size: 0.875rem; }
+.card li::before { content: ''; flex: 0 0 0.375rem; width: 0.375rem; height: 0.375rem; background: var(--card-line); border-radius: 50%; }
+.note { margin: 0 0 1.5rem; max-width: 38ch; color: var(--card-body); font-size: 0.8125rem; }
+.action { display: flex; align-items: center; justify-content: space-between; gap: 1rem; align-self: stretch; margin-top: auto; padding-top: 1rem; font-size: 0.875rem; font-weight: 700; }
+.action span { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--card-action-fill); color: var(--card-action-ink); }
+.compact .art { width: 9rem; }
+.compact h3 { font-size: 1.875rem; }
+@media (min-width: 1100px) {
+  .card:not(.compact) { padding-right: 11rem; }
+  .card:not(.compact) .art { position: absolute; right: 1rem; top: 2rem; width: 9rem; }
+  .card:not(.compact) .action { margin-right: -8rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .doodles { animation: doodle-drift 7s ease-in-out infinite; animation-play-state: paused; }
+  .trail { animation: trail-drift 16s linear infinite; animation-play-state: paused; }
+  :global([data-in-view="true"]) :is(.doodles, .trail) { animation-play-state: running; }
+  .card { transition: transform 350ms var(--ease-out-soft); }
+  .drawing, .doodles, .action span { transition: transform 450ms var(--ease-out-soft); }
+  .card:focus-within .drawing { transform: rotate(-5deg) translateY(-4px); }
+  .action:active span { transform: scale(0.9); }
+  @media (hover: hover) {
+    .card:hover { transform: translateY(-6px); }
+    .card:hover .drawing { transform: rotate(-5deg) translateY(-4px); }
+    .card:hover .doodles { transform: rotate(12deg) scale(1.08); }
+    .action:hover span { transform: rotate(-30deg); }
+  }
+}
+@keyframes doodle-drift { 0%, 100% { rotate: -4deg; } 50% { rotate: 5deg; } }
+@keyframes trail-drift { to { stroke-dashoffset: -130; } }

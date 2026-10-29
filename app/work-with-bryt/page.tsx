@@ -1,8 +1,11 @@
+import { PageDoodles } from "../components/shared/page-doodles";
+import { CardTitle } from "../components/shared/card-title";
+import { LearningPanel } from "../components/shared/learning-panel";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowIcon } from "../components/icons";
-import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
-import { PageFrame } from "../components/site-chrome";
+import { ArrowIcon } from "../components/shared/icons";
+import { ClosingCta, ContentHeading, InteriorHero } from "../components/shared/interior-page";
+import { PageFrame } from "../components/shared/site-chrome";
 import { heroImages } from "../hero-images";
 import { siteConfig } from "../site-config";
 
@@ -37,15 +40,16 @@ export default function WorkWithBrytPage() {
         />
 
         <section className="inner-section conversion-section">
+          <PageDoodles variant={1} />
           <div className="site-shell">
             <ContentHeading eyebrow="Ways to work with us" title="Begin with the support you need now." copy="You do not need to know the perfect answer before you contact us. Start with the closest fit and we will help you find the right direction." />
             <div className="conversion-list">
-              {paths.map(([number, title, copy, label, href]) => (
-                <article key={title}>
-                  <span>{number}</span>
-                  <div><h2>{title}</h2><p>{copy}</p></div>
+              {paths.map(([, title, copy, label, href], index) => (
+                <LearningPanel variant={index} key={title}>
+
+                  <div><CardTitle as="h2">{title}</CardTitle><p>{copy}</p></div>
                   <Link href={href}>{label}<ArrowIcon /></Link>
-                </article>
+                </LearningPanel>
               ))}
             </div>
             <div className="booking-note">

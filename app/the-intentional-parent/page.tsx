@@ -1,6 +1,9 @@
+import { PageDoodles } from "../components/shared/page-doodles";
+import { CardTitle } from "../components/shared/card-title";
+import { LearningPanel } from "../components/shared/learning-panel";
 import type { Metadata } from "next";
-import { ActionLink, ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
-import { PageFrame } from "../components/site-chrome";
+import { ActionLink, ClosingCta, ContentHeading, InteriorHero } from "../components/shared/interior-page";
+import { PageFrame } from "../components/shared/site-chrome";
 import { heroImages } from "../hero-images";
 import { siteConfig } from "../site-config";
 
@@ -37,6 +40,7 @@ export default function TipPage() {
         />
 
         <section className="inner-section podcast-intro">
+          <PageDoodles variant={1} />
           <div className="site-shell editorial-split">
             <ContentHeading eyebrow="About the podcast" title="Real conversations. Practical ideas. Intentional parenting." />
             <div className="editorial-copy">
@@ -48,17 +52,19 @@ export default function TipPage() {
         </section>
 
         <section className="inner-section inner-section--soft">
+          <PageDoodles variant={2} />
           <div className="site-shell">
             <ContentHeading eyebrow="Conversations that matter" title="What we talk about." />
             <div className="topic-grid">
               {topics.map(([title, copy], index) => (
-                <article key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></article>
+                <LearningPanel variant={index} key={title}><CardTitle as="h2">{title}</CardTitle><p>{copy}</p></LearningPanel>
               ))}
             </div>
           </div>
         </section>
 
         <section className="inner-section latest-panel-section">
+          <PageDoodles variant={0} />
           <div className="site-shell latest-panel">
             <div className="latest-panel__intro">
               <p className="eyebrow">Listen & watch</p>

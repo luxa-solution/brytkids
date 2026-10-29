@@ -1,6 +1,9 @@
+import { PageDoodles } from "../../components/shared/page-doodles";
+import { CardTitle } from "../../components/shared/card-title";
+import { LearningPanel } from "../../components/shared/learning-panel";
 import type { Metadata } from "next";
-import { ClosingCta, ContentHeading, InteriorHero } from "../../components/interior-page";
-import { PageFrame } from "../../components/site-chrome";
+import { ClosingCta, ContentHeading, InteriorHero } from "../../components/shared/interior-page";
+import { PageFrame } from "../../components/shared/site-chrome";
 import { heroImages } from "../../hero-images";
 
 export const metadata: Metadata = {
@@ -44,6 +47,7 @@ export default function IntentionalHomeschoolingPage() {
         />
 
         <section className="inner-section inner-section--soft">
+          <PageDoodles variant={1} />
           <div className="site-shell learning-layout">
             <ContentHeading
               eyebrow="What you’ll learn"
@@ -51,19 +55,20 @@ export default function IntentionalHomeschoolingPage() {
               copy="Build a clear philosophy and a practical rhythm that can grow with your child and your family."
             />
             <ol className="learning-list">
-              {lessons.map((lesson, index) => (
-                <li key={lesson}><span>{String(index + 1).padStart(2, "0")}</span>{lesson}</li>
+              {lessons.map((lesson) => (
+                <li key={lesson}>{lesson}</li>
               ))}
             </ol>
           </div>
         </section>
 
         <section className="inner-section">
+          <PageDoodles variant={2} />
           <div className="site-shell">
             <ContentHeading eyebrow="What’s inside" title="Designed to move from thinking to doing." />
             <div className="inside-grid">
               {inside.map(([title, copy], index) => (
-                <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>
+                <LearningPanel variant={index} key={title}><CardTitle as="h3">{title}</CardTitle><p>{copy}</p></LearningPanel>
               ))}
             </div>
           </div>

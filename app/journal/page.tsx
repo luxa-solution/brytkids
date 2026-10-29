@@ -1,6 +1,9 @@
+import { PageDoodles } from "../components/shared/page-doodles";
+import { CardTitle } from "../components/shared/card-title";
+import { LearningPanel } from "../components/shared/learning-panel";
 import type { Metadata } from "next";
-import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
-import { PageFrame } from "../components/site-chrome";
+import { ClosingCta, ContentHeading, InteriorHero } from "../components/shared/interior-page";
+import { PageFrame } from "../components/shared/site-chrome";
 import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
@@ -53,24 +56,20 @@ export default function JournalPage() {
           bottomNote={{ label: "Useful reflection", copy: "Leave with a new thought" }}
         />
         <section id="journal-themes" className="inner-section section-anchor">
+          <PageDoodles variant={1} />
           <div className="site-shell">
             <ContentHeading eyebrow="Latest from the Journal" title="Thoughtful writing is on its way." copy="The Journal will stay simple: useful ideas, clearly written, without noise or unnecessary categories." />
             <div className="journal-themes">
               {themes.map((theme) => (
-                <article key={theme.title} className={`journal-theme-card journal-theme-card--${theme.tone}`}>
-                  <div className="journal-theme-card__art" aria-hidden="true">
-                    <span className="journal-theme-card__word">{theme.art}</span>
-                    <span className="journal-theme-card__shape journal-theme-card__shape--one" />
-                    <span className="journal-theme-card__shape journal-theme-card__shape--two" />
-                  </div>
-                  <div className="journal-theme-card__copy">
+                <LearningPanel variant={themes.indexOf(theme)} key={theme.title}>
+                  <div>
                     <span className="card-tag">{theme.label}</span>
-                    <h2>{theme.title}</h2>
+                    <CardTitle as="h2">{theme.title}</CardTitle>
                     <p>{theme.copy}</p>
                     <ul>{theme.ideas.map((idea) => <li key={idea}>{idea}</li>)}</ul>
                     <small>Coming to the Journal</small>
                   </div>
-                </article>
+                </LearningPanel>
               ))}
             </div>
           </div>

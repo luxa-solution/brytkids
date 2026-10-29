@@ -1,6 +1,9 @@
+import { PageDoodles } from "../components/shared/page-doodles";
+import { CardTitle } from "../components/shared/card-title";
+import { LearningPanel } from "../components/shared/learning-panel";
 import type { Metadata } from "next";
-import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
-import { PageFrame } from "../components/site-chrome";
+import { ClosingCta, ContentHeading, InteriorHero } from "../components/shared/interior-page";
+import { PageFrame } from "../components/shared/site-chrome";
 import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
@@ -33,11 +36,12 @@ export default function LibraryPage() {
           bottomNote={{ label: "Parent tools", copy: "Guidance you can use" }}
         />
         <section id="library-collection" className="inner-section section-anchor">
+          <PageDoodles variant={1} />
           <div className="site-shell">
             <ContentHeading eyebrow="Browse the library" title="Four useful places to begin." copy="The library stays intentionally simple. Each category will grow as new Bryt resources become available." />
             <div className="library-grid">
-              {categories.map(([number, title, copy, verbs]) => (
-                <article key={title}><span>{number}</span><h2>{title}</h2><p>{copy}</p><small>{verbs}</small></article>
+              {categories.map(([, title, copy, verbs], index) => (
+                <LearningPanel variant={index} key={title}><CardTitle as="h2">{title}</CardTitle><p>{copy}</p><small>{verbs}</small></LearningPanel>
               ))}
             </div>
             <p className="availability-banner"><strong>Library update</strong> Products and payment links are being prepared. New resources will appear here as soon as they are ready.</p>

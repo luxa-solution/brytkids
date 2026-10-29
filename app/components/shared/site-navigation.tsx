@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavigationItem } from "../content";
+import type { NavigationItem } from "../../content";
 import { ArrowIcon } from "./icons";
 
 export function isPathActive(pathname: string, href: string) {

@@ -1,0 +1,27 @@
+:global(section):has(> .canvas) { position: relative; isolation: isolate; }
+.canvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.canvas ~ :global(.site-shell) { position: relative; z-index: 1; }
+.canvas svg { position: absolute; width: 2.5rem; opacity: 0.55; transform-origin: center; }
+.first { top: 1.25rem; left: max(1rem, calc((100% - 1320px) / 2)); stroke: var(--page-accent); }
+.second { top: 2rem; right: max(1rem, calc((100% - 1330px) / 2)); width: 3.5rem !important; stroke: var(--orange); }
+.third { bottom: 1rem; right: max(1.5rem, calc((100% - 1300px) / 2)); stroke: var(--pink); }
+@media (max-width: 700px) {
+  .canvas svg { width: 1.75rem; opacity: 0.45; }
+  .second { width: 2.5rem !important; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .first { animation: wander 9s ease-in-out infinite; }
+  .second { animation: wave 11s ease-in-out infinite; }
+  .third { animation: wander 13s ease-in-out infinite reverse; }
+  .canvas svg { animation-play-state: paused; }
+  .canvas[data-in-view="true"] svg { animation-play-state: running; }
+}
+@keyframes wander { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-7px) rotate(7deg); } }
+@keyframes wave { 0%, 100% { transform: translateX(-4px) rotate(-3deg); } 50% { transform: translateX(4px) rotate(3deg); } }

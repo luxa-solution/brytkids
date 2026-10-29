@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { ImageAsset } from "../asset-config";
+import type { ImageAsset } from "../../asset-config";
 
 export function BrandMark({
   asset,

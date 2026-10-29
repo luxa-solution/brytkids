@@ -1,0 +1,50 @@
+.surface {
+  --card-fill: var(--page-accent);
+  --card-ink: var(--ink-on-brand);
+  --card-body: var(--ink-on-brand);
+  --card-highlight: var(--navy-deep);
+  --card-line: var(--navy-deep);
+  --card-label: var(--ink-on-brand);
+  --card-action-fill: var(--navy-deep);
+  --card-action-ink: white;
+}
+.surface:nth-child(odd) {
+  --card-fill: var(--navy-deep);
+  --card-ink: white;
+  --card-body: #d8dff1;
+  --card-highlight: var(--page-accent);
+  --card-line: var(--page-accent);
+  --card-label: #d8dff1;
+  --card-action-fill: var(--page-accent);
+  --card-action-ink: var(--ink-on-brand);
+}
+.surface.surface[data-card] {
+  background: var(--card-fill);
+  color: var(--card-ink);
+  isolation: isolate;
+}
+.surface :is(h2, h3) em {
+  color: var(--card-highlight);
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 1.12em;
+  font-style: italic;
+  font-weight: 450;
+  letter-spacing: -0.025em;
+}
+.surface :global(.eyebrow), .surface :global(.card-tag) {
+  background: none;
+  color: var(--card-label);
+  padding: 0;
+  border: 0;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+}
+.surface :global(.button--dark) {
+  background: var(--card-action-fill);
+  color: var(--card-action-ink);
+}
+.surface a:focus-visible {
+  outline: 3px solid var(--card-ink);
+  outline-offset: 5px;
+  border-radius: 0.5rem;
+}

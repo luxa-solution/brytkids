@@ -1,0 +1,63 @@
+/* The hero is the single source of truth for each page's colour story. */
+.site-page {
+  --page-accent: var(--aqua);
+  --page-soft: var(--aqua-soft);
+  --ink-on-brand: #101a3f;
+}
+.site-page:has(.inner-hero--orange) {
+  --page-accent: var(--orange);
+  --page-soft: #fff3ea;
+}
+.site-page:has(.inner-hero--pink) {
+  --page-accent: var(--pink);
+  --page-soft: #fff0f5;
+}
+.site-page:has(.inner-hero--yellow) {
+  --page-accent: var(--yellow);
+  --page-soft: #fff7df;
+}
+.site-page .inner-section--soft { background: var(--page-soft); }
+.site-page .inner-hero .button--primary {
+  background: var(--page-accent);
+  color: var(--ink-on-brand);
+}
+.site-page :is(.inner-heading, .section-heading) .eyebrow {
+  color: var(--navy);
+}
+.site-page .section-heading--light .eyebrow { color: var(--page-accent); }
+
+/* Shared card rhythm, including collections that formerly used border-only rows. */
+.site-page :is(.values-grid, .services-grid, .program-grid, .explore-grid,
+  .detail-card-grid, .program-page-grid, .journal-themes, .inside-grid,
+  .skill-grid, .topic-grid, .library-grid, .belief-list, .conversion-list) {
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+}
+.site-page :is(.belief-list, .conversion-list) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 0;
+}
+.site-page :is(.belief-list, .conversion-list) > article:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+@media (min-width: 800px) {
+  .site-page :is(.belief-list, .conversion-list) > article:last-child:nth-child(odd) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 10rem;
+    column-gap: 3rem;
+    align-items: center;
+  }
+  .site-page :is(.belief-list, .conversion-list) > article:last-child:nth-child(odd) > div:first-child {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    width: 10rem;
+    margin: 0;
+  }
+  .site-page :is(.belief-list, .conversion-list) > article:last-child:nth-child(odd) > :not(div:first-child) {
+    grid-column: 1;
+  }
+}
+@media (max-width: 700px) {
+  .site-page :is(.belief-list, .conversion-list) { grid-template-columns: 1fr; }
+}

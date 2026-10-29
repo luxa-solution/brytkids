@@ -1,8 +1,14 @@
+import { PageDoodles } from "./components/shared/page-doodles";
+import { CardTitle } from "./components/shared/card-title";
+import { ClosingCta } from "./components/shared/closing-cta";
+import { SectionHeading } from "./components/shared/section-heading";
+import { LearningPanel } from "./components/shared/learning-panel";
+import { DiscoveryCard } from "./components/shared/discovery-card";
 import Image from "next/image";
 import Link from "next/link";
 import familyLearning from "../public/images/bryt-family-learning.webp";
-import { ArrowIcon } from "./components/icons";
-import { FloatingWhatsApp, SiteFooter, SiteHeader } from "./components/site-chrome";
+import { ArrowIcon } from "./components/shared/icons";
+import { FloatingWhatsApp, SiteFooter, SiteHeader } from "./components/shared/site-chrome";
 
 const services = [
   {
@@ -156,90 +162,63 @@ export default function Home() {
         </section>
 
         <section id="about" className="values-section section-anchor">
+          <PageDoodles variant={1} />
           <div className="site-shell">
-            <div className="section-heading section-heading--center">
-              <p className="eyebrow">Why Bryt?</p>
-              <h2>We care about the whole child.</h2>
-              <p>Because who they become matters as much as what they achieve.</p>
-            </div>
+            <SectionHeading layout="center" eyebrow="Why Bryt?" title="We care about the whole child." copy="Because who they become matters as much as what they achieve." />
 
             <div className="values-grid">
-              <article className="value-feature">
-                <p className="value-feature__kicker">Education is bigger than school.</p>
-                <h3>Home is where a lifetime of learning begins.</h3>
-                <p className="value-feature__body">
+              <LearningPanel variant={0}>
+                <p className="eyebrow">Education is bigger than school.</p>
+                <CardTitle as="h3">{"Home is where a lifetime of learning begins."}</CardTitle>
+                <p>
                   Bryt brings parenting, education, character development and practical life skills together, so families can nurture capable, grounded children.
                 </p>
-                <ul className="value-principles" aria-label="The Bryt approach">
+                <ul aria-label="The Bryt approach">
                   <li>Thoughtful parenting</li>
                   <li>Meaningful education</li>
                   <li>Practical guidance</li>
                 </ul>
                 <Link href="/about">Discover what guides us <ArrowIcon /></Link>
-              </article>
+              </LearningPanel>
               {values.map((value) => (
-                <article key={value.title} className={`value-card value-card--${value.tone}`}>
-                  <span className="value-number">{value.number}</span>
-                  <div className="value-card__copy">
-                    <p className="value-label">{value.label}</p>
-                    <h3>{value.title}</h3>
+                <LearningPanel variant={values.indexOf(value) + 1} key={value.title}>
+                  <div>
+                    <p className="eyebrow">{value.label}</p>
+                    <CardTitle as="h3">{value.title}</CardTitle>
                     <p>{value.description}</p>
                   </div>
-                </article>
+                </LearningPanel>
               ))}
             </div>
           </div>
         </section>
 
         <section id="services" className="services-section section-anchor">
+          <PageDoodles variant={2} />
           <div className="site-shell">
-            <div className="section-heading section-heading--split">
-              <div><p className="eyebrow">Personalised support</p><h2>How Bryt helps families.</h2></div>
-              <p>Start with the challenge in front of you. We’ll help you find a clear way forward.</p>
-            </div>
+            <SectionHeading layout="split" eyebrow="Personalised support" title="How Bryt helps families." copy="Start with the challenge in front of you. We’ll help you find a clear way forward." />
 
             <div className="services-grid">
               {services.map((service) => (
-                <article key={service.title} className={`service-card service-card--${service.tone}`}>
-                  <div className="service-card__top">
-                    <span className="service-audience">{service.audience}</span>
-                    <span className="service-number">/{service.number}</span>
-                  </div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <div className="service-includes">
-                    <span>Support can include</span>
-                    <ul>
-                      {service.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
-                    </ul>
-                  </div>
-                  <div className="service-card__footer">
-                    <p><span>Best for</span>{service.idealFor}</p>
-                    <Link href="/services" aria-label={`Explore ${service.title}`}>Explore service <ArrowIcon /></Link>
-                  </div>
-                </article>
+                <DiscoveryCard key={service.title} eyebrow={service.audience} title={service.title}
+                  description={service.description} points={service.outcomes} note={service.idealFor}
+                  tone={service.tone} illustration={service.number === "01" ? "connection" : service.number === "02" ? "book" : service.number === "03" ? "growth" : "spark"}
+                  href="/services" action="Explore service" />
               ))}
             </div>
           </div>
         </section>
 
         <section id="programs" className="programs-section section-anchor">
+          <PageDoodles variant={0} />
           <div className="site-shell">
-            <div className="section-heading section-heading--center section-heading--light">
-              <p className="eyebrow">Programs with purpose</p>
-              <h2>Grow together. In your own way.</h2>
-            </div>
+            <SectionHeading layout="center" light eyebrow="Programs with purpose" title="Grow together. In your own way." />
 
             <div className="program-grid">
-              <article className="program-card program-card--parents">
-                <div className="program-art" aria-hidden="true">
-                  <span className="program-art__book" />
-                  <span className="program-art__sun" />
-                  <span className="program-art__line" />
-                </div>
+              <LearningPanel variant={2}>
                 <div className="program-copy">
                   <span className="card-tag">For parents</span>
-                  <h3>Intentional Homeschooling</h3>
+                  <CardTitle as="h3">{"Intentional Homeschooling"}</CardTitle>
                   <p>Build an education around your child’s needs, strengths, character and future, with clarity and confidence.</p>
                   <ul className="program-details">
                     <li>Video and audio lessons</li>
@@ -248,16 +227,12 @@ export default function Home() {
                   </ul>
                   <Link className="button button--dark" href="/programs/intentional-homeschooling">Explore the course <ArrowIcon /></Link>
                 </div>
-              </article>
+              </LearningPanel>
 
-              <article className="program-card program-card--children">
-                <div className="program-art program-art--leaders" aria-hidden="true">
-                  <span className="speech-bubble">I can!</span>
-                  <span className="leader-shape">+</span>
-                </div>
+              <LearningPanel variant={3}>
                 <div className="program-copy">
                   <span className="card-tag">For children</span>
-                  <h3>Bryt Leaders</h3>
+                  <CardTitle as="h3">{"Bryt Leaders"}</CardTitle>
                   <p>A development program for confident communicators, thoughtful leaders and responsible young people.</p>
                   <ul className="program-details">
                     <li>Public speaking</li>
@@ -266,17 +241,15 @@ export default function Home() {
                   </ul>
                   <Link className="button button--dark" href="/programs/bryt-leaders">Explore Bryt Leaders <ArrowIcon /></Link>
                 </div>
-              </article>
+              </LearningPanel>
             </div>
           </div>
         </section>
 
         <section className="journey-section">
+          <PageDoodles variant={1} />
           <div className="site-shell journey-shell">
-            <div className="section-heading section-heading--center">
-              <p className="eyebrow">Your next step</p>
-              <h2>Getting started is simple.</h2>
-            </div>
+            <SectionHeading layout="center" eyebrow="Your next step" title="Getting started is simple." />
             <ol className="journey-steps">
               <li><span>01</span><h3>Tell us what matters</h3><p>Share the challenge, goal or change your family is working towards.</p></li>
               <li><span>02</span><h3>Choose your support</h3><p>We’ll help you identify the service or program that fits your needs.</p></li>
@@ -287,41 +260,24 @@ export default function Home() {
         </section>
 
         <section id="library" className="explore-section section-anchor">
+          <PageDoodles variant={2} />
           <div className="site-shell">
-            <div className="section-heading section-heading--split">
-              <div><p className="eyebrow">Keep growing</p><h2>More from Bryt.</h2></div>
-              <p>Thoughtful resources and conversations for the everyday work of raising children.</p>
-            </div>
+            <SectionHeading layout="split" eyebrow="Keep growing" title="More from Bryt." copy="Thoughtful resources and conversations for the everyday work of raising children." />
             <div id="journal" className="explore-grid section-anchor">
               {growthLinks.map((item) => (
-                <Link key={item.title} className={`explore-card explore-card--${item.tone}`} href={item.href}>
-                  <span className="explore-mark" aria-hidden="true">{item.mark}</span>
-                  <span className="eyebrow">{item.eyebrow}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <ul className="explore-areas">
-                    {item.areas.map((area) => <li key={area}>{area}</li>)}
-                  </ul>
-                  <span className="explore-arrow"><ArrowIcon /></span>
-                </Link>
+                <DiscoveryCard key={item.title} eyebrow={item.eyebrow} title={item.title}
+                  description={item.description} points={item.areas} tone={item.tone}
+                  illustration={item.mark === "01" ? "book" : item.mark === "02" ? "spark" : "connection"}
+                  href={item.href} action="Discover more" compact />
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="final-cta section-anchor">
-          <div className="site-shell final-cta__panel">
-            <span className="cta-shape cta-shape--one" aria-hidden="true" />
-            <span className="cta-shape cta-shape--two" aria-hidden="true" />
-            <p className="pill-label pill-label--dark">Start your journey</p>
-            <h2>Ready to raise intentionally?</h2>
-            <p>Choose the support your family needs. We’ll take it from there.</p>
-            <div className="button-row button-row--center">
-              <Link className="button button--aqua" href="/work-with-bryt">Work With Bryt <ArrowIcon /></Link>
-              <Link className="button button--ghost" href="/programs">Explore Programs</Link>
-            </div>
-          </div>
-        </section>
+        <ClosingCta id="contact" eyebrow="Start your journey"
+          title="Ready to raise intentionally?"
+          copy="Choose the support your family needs. We’ll take it from there."
+          secondaryLabel="Explore Programs" secondaryHref="/programs" />
       </main>
 
       <SiteFooter />

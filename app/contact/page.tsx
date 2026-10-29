@@ -1,7 +1,8 @@
+import { PageDoodles } from "../components/shared/page-doodles";
 import type { Metadata } from "next";
-import { ContactForm } from "../components/contact-form";
-import { InteriorHero } from "../components/interior-page";
-import { PageFrame } from "../components/site-chrome";
+import { ContactForm } from "../components/shared/contact-form";
+import { ClosingCta, InteriorHero } from "../components/shared/interior-page";
+import { PageFrame } from "../components/shared/site-chrome";
 import { heroImages } from "../hero-images";
 import { siteConfig } from "../site-config";
 
@@ -27,7 +28,8 @@ export default function ContactPage() {
           topNote={{ label: "Direct support", copy: "A real conversation" }}
           bottomNote={{ label: "A clear response", copy: "We’ll guide your next step" }}
         />
-        <section className="inner-section">
+        <section id="contact-enquiry" className="inner-section">
+          <PageDoodles variant={1} />
           <div className="site-shell contact-layout">
             <div className="contact-form-panel">
               <p className="eyebrow">Send an enquiry</p>
@@ -47,6 +49,10 @@ export default function ContactPage() {
             </aside>
           </div>
         </section>
+        <ClosingCta eyebrow="A conversation can change things"
+          title="Your next chapter starts here."
+          copy="Tell us what matters to your family. We’ll help you find a thoughtful way forward."
+          primaryLabel="Send an enquiry" primaryHref="#contact-enquiry" />
       </main>
     </PageFrame>
   );
