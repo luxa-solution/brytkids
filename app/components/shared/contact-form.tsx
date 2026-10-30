@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { siteConfig } from "../site-config";
+import { siteConfig } from "../../site-config";
 
 export function ContactForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {

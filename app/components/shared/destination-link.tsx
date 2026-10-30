@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { SiteDestination } from "../site-config";
+import type { SiteDestination } from "../../site-config";
 
 export function DestinationLink({
   destination,

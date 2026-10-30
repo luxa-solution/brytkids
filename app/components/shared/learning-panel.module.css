@@ -1,0 +1,36 @@
+.panel.panel[data-reveal] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 0;
+  border-radius: 2.5rem 2.5rem 4rem 2.5rem;
+  box-shadow: none;
+  overflow: hidden;
+}
+.panel.panel::before, .panel.panel::after { content: none; }
+.art { width: 8rem; align-self: flex-end; margin-bottom: 1rem; }
+.panel.panel > span { position: static; width: auto; height: auto; margin: 0 0 1rem; padding: 0; border: 0; background: none; color: inherit; font-size: 0.75rem; font-weight: 700; }
+.panel.panel h2, .panel.panel h3 { max-width: 22ch; margin: 0 0 1rem; font-family: var(--font-body); font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.04em; }
+.panel.panel p { max-width: 48ch; line-height: 1.75; }
+.panel.panel ul { display: grid; gap: 0.5rem; padding: 0; margin: 1.5rem 0; list-style: none; }
+.panel.panel li { padding: 0; border: 0; background: none; color: var(--card-body); font-size: 0.875rem; }
+.panel.panel li::before { content: '\2022'; margin-right: 0.75rem; color: var(--card-line); }
+.panel.panel a:not(:global(.button)) { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 44px; color: inherit; font-size: 0.875rem; font-weight: 700; }
+.panel.panel > div > p { margin-bottom: 1rem; }
+.panel.panel > p, .panel.panel > div > p { color: var(--card-body); }
+.panel.panel > p { margin: 0 0 1rem; }
+.panel.panel > a { margin-top: 1.5rem; }
+.panel.panel small { display: block; position: static; margin-top: 1.5rem; padding: 0; border: 0; color: var(--card-body); font-size: 0.6875rem; letter-spacing: 0.07em; text-transform: uppercase; }
+.panel.panel > :global(.program-copy) { padding: 0; }
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .panel.panel { transition: transform 350ms var(--ease-out-soft); }
+  .panel.panel:hover { transform: translateY(-4px); }
+  .art { transition: transform 450ms var(--ease-out-soft); }
+  .panel:hover .art { transform: rotate(-5deg) translateY(-4px); }
+}

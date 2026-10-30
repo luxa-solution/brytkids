@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Newsreader } from "next/font/google";
 import { content } from "./content";
-import { MotionEnhancer } from "./components/motion-enhancer";
+import { MotionOrchestrator } from "./components/shared/motion-orchestrator";
 import "./globals.css";
+import "./components/shared/page-theme.css";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         {children}
-        <MotionEnhancer />
+        <MotionOrchestrator />
       </body>
     </html>
   );

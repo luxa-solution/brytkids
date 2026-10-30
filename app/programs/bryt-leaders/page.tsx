@@ -1,6 +1,9 @@
+import { PageDoodles } from "../../components/shared/page-doodles";
+import { CardTitle } from "../../components/shared/card-title";
+import { LearningPanel } from "../../components/shared/learning-panel";
 import type { Metadata } from "next";
-import { ClosingCta, ContentHeading, InteriorHero } from "../../components/interior-page";
-import { PageFrame } from "../../components/site-chrome";
+import { ClosingCta, ContentHeading, InteriorHero } from "../../components/shared/interior-page";
+import { PageFrame } from "../../components/shared/site-chrome";
 import { heroImages } from "../../hero-images";
 
 export const metadata: Metadata = {
@@ -36,6 +39,7 @@ export default function BrytLeadersPage() {
         />
 
         <section className="inner-section">
+          <PageDoodles variant={1} />
           <div className="site-shell">
             <ContentHeading
               eyebrow="Skills for life"
@@ -44,7 +48,7 @@ export default function BrytLeadersPage() {
             />
             <div className="skill-grid">
               {skills.map(([title, copy], index) => (
-                <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h2>{title}</h2><p>{copy}</p></article>
+                <LearningPanel variant={index} key={title}><CardTitle as="h2">{title}</CardTitle><p>{copy}</p></LearningPanel>
               ))}
             </div>
           </div>

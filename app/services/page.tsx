@@ -1,8 +1,8 @@
+import { PageDoodles } from "../components/shared/page-doodles";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowIcon } from "../components/icons";
-import { ClosingCta, ContentHeading, InteriorHero } from "../components/interior-page";
-import { PageFrame } from "../components/site-chrome";
+import { DiscoveryCard } from "../components/shared/discovery-card";
+import { ClosingCta, ContentHeading, InteriorHero } from "../components/shared/interior-page";
+import { PageFrame } from "../components/shared/site-chrome";
 import { heroImages } from "../hero-images";
 
 export const metadata: Metadata = {
@@ -64,6 +64,7 @@ export default function ServicesPage() {
         />
 
         <section className="inner-section">
+          <PageDoodles variant={1} />
           <div className="site-shell">
             <ContentHeading
               eyebrow="Our services"
@@ -72,15 +73,10 @@ export default function ServicesPage() {
             />
             <div className="detail-card-grid">
               {offers.map((offer) => (
-                <article key={offer.title} className={`detail-card detail-card--${offer.tone}`}>
-                  <span className="detail-card__shape" aria-hidden="true" />
-                  <p className="detail-card__tag">{offer.label}</p>
-                  <div className="detail-card__index">{offer.number}</div>
-                  <h2>{offer.title}</h2>
-                  <p>{offer.copy}</p>
-                  <ul>{offer.points.map((point) => <li key={point}>{point}</li>)}</ul>
-                  <Link href="/work-with-bryt">Discuss this service <ArrowIcon /></Link>
-                </article>
+                <DiscoveryCard key={offer.title} eyebrow={offer.label} title={offer.title}
+                  description={offer.copy} points={offer.points} tone={offer.tone}
+                  illustration={offer.number === "01" ? "connection" : offer.number === "02" ? "growth" : offer.number === "03" ? "book" : "spark"}
+                  href="/work-with-bryt" action="Discuss this service" />
               ))}
             </div>
           </div>

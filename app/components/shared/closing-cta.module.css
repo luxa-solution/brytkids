@@ -1,0 +1,60 @@
+.section { padding: 1rem 0 clamp(4rem, 8vw, 7rem); scroll-margin-top: 7rem; }
+.panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 1rem 3rem;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border-radius: 3rem 6rem 3rem 3rem;
+  background: var(--navy-deep);
+  color: white;
+}
+.copy { position: relative; z-index: 1; }
+.eyebrow { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.5rem; color: #d8dff1; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.eyebrow > span { color: var(--page-accent); display: inline-block; font-size: 1.75rem; line-height: 1; }
+.panel h2 { max-width: 16ch; margin: 0; font-family: var(--font-body); font-size: clamp(2.5rem, 4.6vw, 4.25rem); font-weight: 650; line-height: 1.07; letter-spacing: -0.045em; text-wrap: balance; }
+.panel h2 em { color: var(--page-accent); font-family: var(--font-newsreader), Georgia, serif; font-size: 1.1em; font-weight: 450; letter-spacing: -0.035em; }
+.lead { max-width: 42ch; margin: 1.5rem 0 2rem; color: #d8dff1; font-size: clamp(1rem, 1.4vw, 1.125rem); line-height: 1.75; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; }
+.primary, .secondary { display: inline-flex; align-items: center; justify-content: center; gap: 1.25rem; min-height: 3.5rem; font-size: 0.875rem; font-weight: 700; }
+.primary { padding: 1rem 1.5rem; border-radius: 999px; background: var(--page-accent); color: var(--ink-on-brand); }
+.secondary { color: white; text-decoration: underline; text-underline-offset: 0.4rem; text-decoration-color: #647197; }
+.primary svg, .secondary svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+.actions a:focus-visible { outline: 3px solid white; outline-offset: 5px; border-radius: 999px; }
+.art { align-self: center; width: 100%; max-width: 22rem; justify-self: center; text-align: center; }
+.doodle { width: 100%; overflow: visible; }
+.orbit { color: #637199; transform-origin: 180px 180px; }
+.book, .star, .sparks { transform-box: fill-box; transform-origin: center; }
+.art p { margin: -0.5rem 0 0; color: #d8dff1; font-size: 0.75rem; line-height: 1.6; letter-spacing: 0.04em; }
+.art p span { color: white; }
+.signature { display: flex; align-items: center; gap: 0.75rem; grid-column: 1 / -1; margin-top: 1.5rem; color: #bac5e0; font-size: 0.6875rem; letter-spacing: 0.04em; }
+.signature > span { width: 2rem; height: 2px; background: var(--page-accent); }
+@media (max-width: 700px) {
+  .panel { grid-template-columns: 1fr; gap: 2rem; border-radius: 2rem 4rem 2rem 2rem; }
+  .panel h2 { max-width: 18ch; }
+  .art { width: 11rem; justify-self: end; margin-top: -0.5rem; }
+  .art p { display: none; }
+  .signature { margin-top: -1rem; max-width: 22ch; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .book { animation: book-float 6s ease-in-out infinite; }
+  .star { animation: star-sway 5s ease-in-out infinite; }
+  .orbit { animation: orbit 65s linear infinite; }
+  .trail { animation: trail 14s linear infinite; }
+  .sparks, .eyebrow > span { animation: star-sway 8s ease-in-out infinite reverse; }
+  .panel :is(.book, .star, .orbit, .trail, .sparks), .eyebrow > span { animation-play-state: paused; }
+  .panel[data-in-view="true"] :is(.book, .star, .orbit, .trail, .sparks), .panel[data-in-view="true"] .eyebrow > span { animation-play-state: running; }
+  .primary, .primary svg, .secondary svg { transition: transform 250ms var(--ease-out-soft); }
+  .primary:active { transform: scale(0.96); }
+  .primary:focus-visible svg, .secondary:focus-visible svg { transform: translateX(4px); }
+  @media (hover: hover) {
+    .primary:hover { transform: translateY(-3px); }
+    .actions a:hover svg { transform: translateX(4px); }
+  }
+}
+@keyframes book-float { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-9px) rotate(2deg); } }
+@keyframes star-sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes trail { to { stroke-dashoffset: -160; } }
